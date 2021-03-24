@@ -1,0 +1,9 @@
+﻿Technology;Bit Rate (Mb/s) *10^3;Range (km);Delay (s);Signal Interference (Low 1 High 3)
+UWB;0,01;0.01;1;1
+WIFI;1;0.1;1;3
+Bluetooth;0,024;0.1;3;3
+ZibBee;0,25;0.1;0.03;3
+DSRC;0,054;1;0.1;1
+WiMax;0,128;50;0.01;3
+LTE-V;1;2;0.05;1
+5G;10;2;0.001;1
