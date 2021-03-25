@@ -12,7 +12,7 @@
 <body>
 
 
-<h1 align="center">Taxonomy of Communication Applications to Ground Transportation </h1>
+<h1 align="center">Taxonomy</h1>
 
 L'ensemble du repertoire de Binder ce trouve dans ce lien [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HuguesBlache/test2/HEAD)
 
