@@ -11,4 +11,5 @@ dependencies:
   - partd
   - bokeh
   - dask
-
+  - plotly
+  - ipywidgets
