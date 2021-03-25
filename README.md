@@ -18,5 +18,5 @@ L'ensemble du repertoire de Binder ce trouve dans ce lien [![Binder](https://myb
 
 <h2 align="center"> Technology Classification </h2>
 
-
+Determination des KPIs des differentes technologies utilisées dans notre taxonomie
 </body>
