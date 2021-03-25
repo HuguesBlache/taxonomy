@@ -14,10 +14,9 @@
 
 <h1 align="center">Taxonomy of Communication Applications to Ground Transportation </h1>
 
-
+L'ensemble du repertoire de Binder ce trouve dans ce lien [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HuguesBlache/test2/HEAD)
 
 <h2 align="center"> Technology Classification </h2>
 
-https://hub.gke2.mybinder.org/user/huguesblache-test2-c5fkued1/notebooks/RadarPloty.ipynb
 
 </body>
