@@ -11,10 +11,10 @@
 
 <body>
 
-
+To access the programs, just click on the images!
 <h1 align="center">Taxonomy</h1>
 
-L'ensemble du repertoire de Binder ce trouve dans ce lien [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HuguesBlache/test2/HEAD)
+The entire repertoire of Binder can be found in this link [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HuguesBlache/test2/HEAD)
 
 <h2 align="center"> Transportation application Classification </h2>
 
@@ -23,10 +23,9 @@ L'ensemble du repertoire de Binder ce trouve dans ce lien [![Binder](https://myb
  
 
 <h2 align="center"> Technology Classification </h2>
+Determination of the KPIs of the different technologies used in our taxonomy
 
-Determination des KPIs des differentes technologies utilisées dans notre taxonomie
-
-Liens entre KPI et technologie : [![KPItech](WiFI.png)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/e35c02964639ccbb7fdb05e1115c6299b5edd7f5?filepath=RadarPloty.ipynb)
+Links between KPI and technology:  [![KPItech](WiFI.png)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/e35c02964639ccbb7fdb05e1115c6299b5edd7f5?filepath=RadarPloty.ipynb)
  
 
 </body>
