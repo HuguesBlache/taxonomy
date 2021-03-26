@@ -38,7 +38,9 @@ The entire repertoire of Binder can be found in this link [![Binder](https://myb
 Determination of the KPIs of the different technologies used in our taxonomy
 
 Links between KPI and technology:  [![KPItech](WiFI.png)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/e35c02964639ccbb7fdb05e1115c6299b5edd7f5?filepath=RadarPloty.ipynb)
- 
+
+[![KPItech](Parallele coordination.png)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/e35c02964639ccbb7fdb05e1115c6299b5edd7f5?filepath=RadarPloty.ipynb)
+
 <h3 align="center"> Technology and Communication Mode </h3> 
 
 [![KPItech](ComTech.png)](https://hub.gke2.mybinder.org/user/huguesblache-taxonomy-a21lr050/notebooks/technolgoir.ipynb)
