@@ -42,7 +42,7 @@ Determination of the KPIs of the different technologies used in our taxonomy
 
 Links between KPI and technology:  [![KPItech](Image/WiFI.png)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/e35c02964639ccbb7fdb05e1115c6299b5edd7f5?filepath=RadarPloty.ipynb)
 
-[![KPItech](https://github.com/HuguesBlache/taxonomy/blob/master/Parallele%20coordination.png)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/e35c02964639ccbb7fdb05e1115c6299b5edd7f5?filepath=RadarPloty.ipynb)
+[![KPItech](Image/Parallele_coordination.png)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/e35c02964639ccbb7fdb05e1115c6299b5edd7f5?filepath=RadarPloty.ipynb)
 
 <h3 align="center"> Technology and Communication Mode </h3> 
 
