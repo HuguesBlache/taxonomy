@@ -14,16 +14,16 @@
 To access the programs, just click on the images!
 <h1 align="center">Taxonomy</h1>
 
-The entire repertoire of Binder can be found in this link [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HuguesBlache/test2/HEAD)
+The entire repertoire of Binder can be found in this link [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/HEAD)
 
 <h2 align="center"> Transportation application Classification </h2>
 
 
-[![Transportation](Image/sankey.png)](https://hub.gke2.mybinder.org/user/huguesblache-taxonomy-a21lr050/notebooks/Comm.ipynb)
+[![Transportation](Image/sankey.png)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/ddf3a006aaba0ef1413251dd210191e7a6cb3567?filepath=Code%2FSankey.ipynb)
  
 <h3 align="center"> Transport Class and KPI </h3>  
 
-[![KPItech](Image/ParClass.png)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/e35c02964639ccbb7fdb05e1115c6299b5edd7f5?filepath=RadarPloty.ipynb)
+[![KPItech](Image/ParClass.png)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/ddf3a006aaba0ef1413251dd210191e7a6cb3567?filepath=Code%2FParallel%20Cordianate%20Diagrame%20Class.ipynb)
 
 <h3 align="center"> Application and Communication Mode </h3>  
 
@@ -32,7 +32,7 @@ The entire repertoire of Binder can be found in this link [![Binder](https://myb
 
 <h3 align="center"> Application and Priority </h3>  
 
-[![KPItech](Image/AppPri.png)](https://hub.gke2.mybinder.org/user/huguesblache-taxonomy-a21lr050/notebooks/SankeyKPI.ipynb)
+[![KPItech](Image/AppPri.png)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/ddf3a006aaba0ef1413251dd210191e7a6cb3567?filepath=Code%2FSankeyKPI.ipynb)
 
 <h2 align="center"> Technology Classification </h2>
 
@@ -46,7 +46,7 @@ Links between KPI and technology:  [![KPItech](Image/WiFI.png)](https://mybinder
 
 <h3 align="center"> Technology and Communication Mode </h3> 
 
-[![KPItech](Image/ComTech.png)](https://hub.gke2.mybinder.org/user/huguesblache-taxonomy-a21lr050/notebooks/technolgoir.ipynb)
+[![KPItech](Image/ComTech.png)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/ddf3a006aaba0ef1413251dd210191e7a6cb3567?filepath=Code%2FComm.ipynb)
 
 
 <
