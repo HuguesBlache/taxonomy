@@ -1,0 +1,93 @@
+Name;Comm;Color
+Vulnerable road user warning;V2I;lightcoral
+Post-crash warning;V2I;lightcoral
+Signal violation warning;V2I;lightcoral
+Roadwork warning;V2I;lightcoral
+Sensor/data Sharing;V2I;lightcoral
+Left Turn Assist (A combiner);V2I;lightcoral
+Co-operative merging assistance;V2I;lightcoral
+Hazardous location notification;V2I;lightcoral
+Intersection collision warning;V2I;lightcoral
+Regulatory/contextual speed limits;V2I;lightcoral
+Curve Speed Warning;V2I;lightcoral
+Traffic light optimal speed advisory;V2I;lightcoral
+Ecological/economical data collection from vehicle;V2I;lightcoral
+Traffic information and recommended itinerary;V2I;lightcoral
+Enhanced route guidance guidance and navigation;V2I;lightcoral
+Limited access warning, detour notification;V2I;lightcoral
+Intersection management;V2I;lightcoral
+In-vehicle signage;V2I;lightcoral
+Co-operative vehicle-highway automation system (Platoon);V2I;lightcoral
+Point of interest notification;V2I;lightcoral
+Automatic access control/parking access;V2I;lightcoral
+Electronic toll collect;V2I;lightcoral
+Co-operative local services;V2I;lightcoral
+Local electronic commerce;V2I;lightcoral
+Car rental/sharing assignment/reporting;V2I;lightcoral
+Media downloading;V2I;lightcoral
+Map download and update;V2I;lightcoral
+Instant messaging;V2I;lightcoral
+Personal data synchronization;V2I;lightcoral
+SOS service;V2I;lightcoral
+Stolen vehicle alert;V2I;lightcoral
+Remote diagnosis and just in time repair notification;V2I;lightcoral
+Vehice relation management;V2I;lightcoral
+Vehicle data collection for product life cycle management;V2I;lightcoral
+Insurance and financial services;V2I;lightcoral
+Fleet management (inc taxi/ridehailing);V2I;lightcoral
+Vehicle software/date provisoning and update;V2I;lightcoral
+Loading zone management;V2I;lightcoral
+Vehicle and RSU data calibration;V2I;lightcoral
+Automated Parking;V2I;lightcoral
+Video see-through systems;V2I;lightcoral
+Vulnerable road user warning;V2P;lightgreen
+Pre-crash sensing warning;V2P;lightgreen
+Intersection collision warning;V2P;lightgreen
+Emergency electronic brake lights;V2V;lightskyblue
+Slow vehicle warning;V2V;lightskyblue
+Motorcycle warning;V2V;lightskyblue
+Post-crash warning;V2V;lightskyblue
+Lane change assistance;V2V;lightskyblue
+Sensor/data Sharing;V2V;lightskyblue
+Blind Spot Warning;V2V;lightskyblue
+Pre-crash sensing warning;V2V;lightskyblue
+Co-operative glare reduction;V2V;lightskyblue
+Left Turn Assist (A combiner);V2V;lightskyblue
+Co-operative merging assistance;V2V;lightskyblue
+Hazardous location notification;V2V;lightskyblue
+Collision risk warning from RSU;V2V;lightskyblue
+Intersection collision warning;V2V;lightskyblue
+Co-operative forward collision warning;V2V;lightskyblue
+Traffic light optimal speed advisory;V2V;lightskyblue
+Ecological/economical data collection from vehicle;V2V;lightskyblue
+Intersection management;V2V;lightskyblue
+Flexible allocation of a dedicated lane;V2V;lightskyblue
+Co-operative adaptative cruise control;V2V;lightskyblue
+Map download and update;V2V;lightskyblue
+Instant messaging;V2V;lightskyblue
+SOS service;V2V;lightskyblue
+Stolen vehicle alert;V2V;lightskyblue
+Remote diagnosis and just in time repair notification;V2V;lightskyblue
+Safety function out of normal condition warning;;lightskyblue
+Emergency vehicle warning;;lightskyblue
+Wrong way driving warning;;lightskyblue
+Stationary vehicle warning;;lightskyblue
+Traffic condition warning / floating car data (inc ecological);;lightskyblue
+Cooperative Safety Zone;;lightskyblue
+Decentralized floating car data;;lightskyblue
+Overtaking vehicle warning;;lightskyblue
+Across traffic turn collision risk warning;;lightskyblue
+Intersection Movement Assist;;lightskyblue
+Merging traffic turn collision risk warning;;lightskyblue
+Head on collision warning;;lightskyblue
+Rear end collision warning;;lightskyblue
+Control Loss Warning;;lightskyblue
+Speed Management (inc eco-driving);;lightskyblue
+Lane management;;lightskyblue
+Emergency vehicle signal preemption;;lightskyblue
+Transit vehicle signal priority;;lightskyblue
+Cooperative intersection control;;lightskyblue
+Global Internet Services;;lightskyblue
+Tele-operated driving;;lightskyblue
+Video see-through systems;V2V;lightskyblue
+Low Emissions Zone Management;;lightskyblue
