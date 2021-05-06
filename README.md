@@ -30,6 +30,9 @@ Data <i> <a href="https://docs.google.com/spreadsheets/d/1OfUOVvTzfcZZhlYli21-Wm
 <h2 align="center">Interactive part</h2>
 
 <h3 align="center">My Binder</h3>
+
+
+
 The entire repertoire of Binder can be found in this link [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/HEAD)
 
 
