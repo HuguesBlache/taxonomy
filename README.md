@@ -42,4 +42,12 @@ https://mybinder.org/v2/gh/HuguesBlache/taxonomy/0c8d65e7a69f2fc1affdae25e770bfc
 
 <h3 align="center">Download script</h3>
 
+Requirement `jupyter notebook`
+
+`git clone https://github.com/HuguesBlache/taxonomy`
+
+Launch with Jupyter NoteBook on our <a href="https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/execute.html#running-the-jupyter-notebook">terminal<a> window or with the app:
+
+`jupyter-notebook <FOLDER_HOME>/interactive_part.ipynb`
+
 </body>
