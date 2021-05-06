@@ -24,7 +24,7 @@ Cite: <i> A Mapping of Connected Vehicles Applications Requirements on Telecommu
 
 <h2 align="center">Data</h2>
 
-Data <i href="https://docs.google.com/spreadsheets/d/1OfUOVvTzfcZZhlYli21-WmcEfmikRiymsMdYXG2SAA4/edit#gid=386603968">link </i>
+Data <i> <a href="https://docs.google.com/spreadsheets/d/1OfUOVvTzfcZZhlYli21-WmcEfmikRiymsMdYXG2SAA4/edit#gid=386603968">link <a/></i>
 
 
 <h1 align="center">Interactive part</h1>
