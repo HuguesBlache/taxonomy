@@ -29,7 +29,7 @@ Data <i> <a href="https://docs.google.com/spreadsheets/d/1OfUOVvTzfcZZhlYli21-Wm
 
 <h2 align="center">Interactive part</h2>
 
-<h3align="center">My Binder</h3>
+<h3 align="center">My Binder</h3>
 The entire repertoire of Binder can be found in this link [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/HEAD)
 
 
@@ -37,6 +37,6 @@ Ligne pour interraction:
 https://mybinder.org/v2/gh/HuguesBlache/taxonomy/0c8d65e7a69f2fc1affdae25e770bfc3c13d61a0?filepath=interactive_part.ipynb
 
 
-<h3align="center">Download script</h3>
+<h3 align="center">Download script</h3>
 
 </body>
