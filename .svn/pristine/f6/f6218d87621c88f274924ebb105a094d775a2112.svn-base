@@ -1,0 +1,78 @@
+\documentclass[preprint,authoryear,10pt,a4paper]{elsarticle}
+\usepackage[top=0.75in, bottom=0.75in, left=0.75in, right=0.75in]{geometry}
+%\documentclass[transmag]{IEEEtran}
+
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{amsfonts,amssymb,amsmath}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{colortbl}
+\usepackage{diagbox}
+%%%
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{placeins}
+\usepackage{smartdiagram}
+\usepackage{caption}
+\usepackage{subcaption}
+
+%%% Accronyme
+\usepackage[utf8]{inputenc}
+\usepackage[acronym]{glossaries}
+
+
+\makenoidxglossaries
+
+\input{sections/acronyme.tex}
+%\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+%\markboth{$>$ REPLACE THIS LINE WITH YOUR PAPER IDENTIFICATION NUMBER $<$}
+%{$>$ REPLACE THIS LINE WITH YOUR PAPER IDENTIFICATION NUMBER $<$}
+\graphicspath{{image/}}
+
+
+\title{A Mapping of Connected Vehicles Applications Requirements on Telecommunication Technologies}
+
+\author{First Author, Second  Author,  Third  Author, and Fourth  Author,
+%\thanks{Author's affiliation}
+}
+
+
+\begin{document}
+
+\maketitle
+
+%\IEEEtitleabstractindextext{
+
+\input{sections/abstract.tex}
+
+
+%\begin{IEEEkeywords}
+\paragraph{Keywords} Taxonomy,  
+%\end{IEEEkeywords}
+%}
+
+\input{sections/introduction.tex}
+%add other sections here
+
+\input{sections/literature.tex}
+
+%\input{sections/literature_hakim.tex}
+
+\input{sections/methodology.tex}
+
+\input{sections/result.tex}
+
+
+
+\input{sections/conclusion.tex}
+
+
+\appendix
+\input{sections/annexe.tex}
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{reference.bib,reference_hakim.bib}
+
+\end{document}

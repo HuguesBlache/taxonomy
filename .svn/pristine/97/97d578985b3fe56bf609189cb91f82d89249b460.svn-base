@@ -1,0 +1,89 @@
+\newacronym{ITS}{ITS}{Intelligent transportation systems}
+\newacronym{CT}{CT}{Connected Transportation}
+\newacronym{KPI}{KPI}{Key Performance Indicator}
+\newacronym{ETSI}{ETSI}{European Standards Organization}
+\newacronym{IEEE}{IEEE}{Institute of Electrical and Electronics Engineers}
+\newacronym{MDPI}{MDPI}{Multidisciplinary Digital Publishing Institute}
+\newacronym{USDOT}{USDOT}{United States Department of Transportation}
+\newacronym{UWB}{UWB}{Ultra-Wide Band}
+\newacronym{BLE}{BLE}{Bluetooth Low Energy}
+\newacronym{Wi-Fi}{Wi-Fi}{Wirelesss Fidelity}
+\newacronym{DSRC}{DSRC}{Dedicated Short Range Communication Technology}
+\newacronym{WiMax}{WiMax}{Worldwide Interoperability for Microwave Access}
+\newacronym{LTE}{LTE}{Long-Term Evolution}
+\newacronym{LTE-A}{LTE-A}{\acrlong{LTE} Avanced}
+\newacronym{NBIoT}{NBIoT}{Narrow-Band Internet of things}
+\newacronym{LPWAN}{LPWAN}{low power wide area network}
+\newacronym{C-IoT}{C-IoT}{low data rate cellular IoT}
+\newacronym{MBWA}{MBWA}{Mobile Boradband Wirless Access}
+\newacronym{LoRa}{LoRa}{Long Range Technology}
+\newacronym{V2V}{V2V}{Vehicle-to-vehicle}
+\newacronym{V2I}{V2I}{Vehicle-infrastructure}
+\newacronym{V2P}{V2P}{Vehicle-to-pedestrian}
+\newacronym{V2X}{V2X}{Vehicle-to-everything}
+\newacronym{V2T}{V2T}{Vehicle-to-traffic-light}
+\newacronym{ATTCRW}{ATTCRW}{Across traffic turn collision risk warning}
+\newacronym{AAC}{AAC}{Automatic access control/parking access}
+\newacronym{CTR}{CTR}{Car rental/sharing assignment/reporting}
+\newacronym{CACC}{CACC}{Co-operative adaptive cruise control}
+\newacronym{ACC}{ACC}{Adaptive cruise control}
+\newacronym{CFCW}{CFCW}{Co-operative forward collision warning}
+\newacronym{CGR}{CGR}{Co-operative glare reduction}
+\newacronym{CMA}{CMA}{Co-operative merging assistance}
+\newacronym{CVHAS}{CVHAS}{Co-operative vehicle-highway automation system (Platoon)}
+\newacronym{RSU}{RSU}{Road side unit}
+\newacronym{CRWRSU}{CRWRSU}{Collision risk warning from RSU}
+\newacronym{CLW}{CLW}{Control Loss Warning}
+\newacronym{EDCV}{EDCV}{Ecological/economical data collection from vehicle}
+\newacronym{ETC}{ETC}{Electronic toll collect}
+\newacronym{EEBL}{EEBL}{Emergency electronic brake lights}
+\newacronym{EVSP}{EVSP}{Emergency vehicle signal preemption}
+\newacronym{EVW}{EVW}{Emergency vehicle warning}
+\newacronym{ERGN}{ERGN}{Enhanced route guidance guidance and navigation}
+\newacronym{FM}{FM}{Fleet management (inc taxi/ridehailing)}
+\newacronym{FADL}{FADL}{Flexible allocation of a dedicated lane}
+\newacronym{GIS}{GIS}{Global Internet Services}
+\newacronym{HLN}{HLN}{Hazardous location notification}
+\newacronym{HCW}{HCW}{Head on collision warning}
+\newacronym{IS}	{IS}{In-vehicle signage}
+\newacronym{IM}{IM}{Instant messaging}
+\newacronym{IFS	}{IFS}{Insurance and financial services}
+\newacronym{ICW}{ICW}{Intersection collision warning}
+\newacronym{InM}{InM}{Intersection management}
+\newacronym{LCA}{LCA}{Lane change assistance}
+\newacronym{LM}{LM}{Lane management}
+\newacronym{LAW}{LAW}{Limited access warning, detour notification}
+\newacronym{LZM}{LZM}{Loading zone management}
+\newacronym{LEC}{LEC}{Local electronic commerce}
+\newacronym{LWZM}{LWZM}{Low Emissions Zone Management}
+\newacronym{MDU}{MDU}{Map download and update}
+\newacronym{MD}{MD}{Media downloading}
+\newacronym{MTTCRW}{MTTCRW}{Merging traffic turn collision risk warning} 
+\newacronym{MW}{MW}{Motorcycle warning}
+\newacronym{OVW}{OVW}{Overtaking vehicle warning}
+\newacronym{PA}{PA}{Parking assistance}
+\newacronym{PIN}{PIN}{Point of interest notification}
+\newacronym{PCW}{PCW}{Post-crash warning}
+\newacronym{PCSW}{PCSW}{Pre-crash sensing warning}
+\newacronym{CSL}{CSL}{Regulatory/contextual speed limits}
+\newacronym{RD}{RD}{Remote diagnosis and just in time repair notification}
+\newacronym{RW}{RW}{Roadwork warning}
+\newacronym{SFONCW}{SFONCW}{Safety function out of normal condition warning}
+\newacronym{DS}{DS}{Sensor/data Sharing}
+\newacronym{SiVW}{SiVW}{Signal violation warning}
+\newacronym{SlVW}{SlVW}{Slow vehicle warning}
+\newacronym{SOSS}{SOSS}{SOS service}
+\newacronym{SM}{SM}{Speed Management (inc eco-driving)}
+\newacronym{StVW}{StVW}{Stationary vehicle warning}
+\newacronym{SVA}{SVA}{Stolen vehicle alert}
+\newacronym{TOD}{TOD}{Tele-operated driving}
+\newacronym{TCW}{TCW}{Traffic condition warning / floating car data}
+\newacronym{TIRI}{TIRI}{Traffic information and recommended itinerary}
+\newacronym{TLOSP}{TLOSP	}{Traffic light optimal speed advisory}
+\newacronym{TVSP}{TVSP}{Transit vehicle signal priority}
+\newacronym{VRSUDC}{VRSUDC}{Vehicle and RSU data calibration}
+\newacronym{VS}{VS}{Vehicle software/date provisoning and update}
+\newacronym{VRUW}{VRUW}{Vulnerable road user warning}
+\newacronym{WWDW}{WWDW}{Wrong way driving warning}
+	
+	
