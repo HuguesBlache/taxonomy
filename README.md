@@ -50,7 +50,7 @@ Launch with Jupyter NoteBook on our <a href="https://jupyter-notebook-beginner-g
 
 `jupyter-notebook <FOLDER_HOME>/interactive_part.ipynb`
 
-<h3 align="center">Way</h3>
+<h3 align="center">Method</h3>
 
 <p align="center">
   <img src=".\Image\Cheminement_Interaction.png">
