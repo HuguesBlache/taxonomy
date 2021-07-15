@@ -15,8 +15,7 @@
 
 <h1 align="center">A Mapping of Connected Vehicles Applications Requirements on Telecommunication Technologies</h1>
 
-
-Taxonomy part of Hugues Blache M.A.Sc project
+Taxonomy part of Hugues Blache M.A.Sc project with the participation of him supervisors <a href="https://www.polymtl.ca/expertises/en/sanso-brunilde">Brunilde Sanso</a> and <a href="https://www.polymtl.ca/expertises/en/saunier-nicolas">Nicolas Saunier</a>, with the help of <a href="https://www.concordia.ca/ginacody/computer-science-software-eng/faculty.html?fpid=hakim-mellah">Hakim Mellah</a> and the <a href="https://www.trafficm2modelling.com/home">M2M</a> team
 
 <h2 align="center">Article link</h2>
 
@@ -24,8 +23,9 @@ Cite: <i> A Mapping of Connected Vehicles Applications Requirements on Telecommu
 
 <h2 align="center">Data</h2>
 
-Data <i> <a href="https://docs.google.com/spreadsheets/d/1OfUOVvTzfcZZhlYli21-WmcEfmikRiymsMdYXG2SAA4/edit#gid=386603968">link <a/></i>
+The data was compiled on a <i> <a href="https://docs.google.com/spreadsheets/d/1OfUOVvTzfcZZhlYli21-WmcEfmikRiymsMdYXG2SAA4/edit#gid=386603968">Google sheet</a></i>. The data is synchronized directly with the Binder, that is to say that with each change, the figures change for each recompilation of the scripts. 
 
+Some data is not fully exploited because the Google sheet is just a collection of data. Thus, it is possible that unclear data vis-à-vis the studies are not taken into account in the programs. 
 
 <h2 align="center">Interactive part</h2>
 
@@ -36,9 +36,7 @@ Data <i> <a href="https://docs.google.com/spreadsheets/d/1OfUOVvTzfcZZhlYli21-Wm
 The entire repertoire of Binder can be found in this link [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/HEAD)
 
 
-Ligne pour interraction: 
-https://mybinder.org/v2/gh/HuguesBlache/taxonomy/0c8d65e7a69f2fc1affdae25e770bfc3c13d61a0?filepath=interactive_part.ipynb
-
+The interactive parts can be found in the NoteBook <i>interactive_part.ipynb</i> .Launch the first cell and play with the different potibilities described below. 
 
 <h3 align="center">Download script</h3>
 
@@ -50,10 +48,12 @@ Launch with Jupyter NoteBook on our <a href="https://jupyter-notebook-beginner-g
 
 `jupyter-notebook <FOLDER_HOME>/interactive_part.ipynb`
 
-<h3 align="center">Method</h3>
+<h3 align="center">Possibility</h3>
 
+The following figure represents the different possible paths for the figures 
 <p align="center">
-  <img src=".\Image\Cheminement_Interaction.png">
+  <img src=".\Image\plot_interactive.pdf">
 </p>
 
+The figures presented in the articles are available in the code and are interactive thanks to the Plotly module. Other figures are available in the program such as 2D plots which allow the attributes to be varied. 
 </body>
