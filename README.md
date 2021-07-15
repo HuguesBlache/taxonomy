@@ -52,7 +52,7 @@ Launch with Jupyter NoteBook on our <a href="https://jupyter-notebook-beginner-g
 
 The following figure represents the different possible paths for the figures 
 <p align="center">
-  <img src=".\Image\plot_interactive.pdf">
+  <img src=".\Image\Cheminement_Interaction.png">
 </p>
 
 The figures presented in the articles are available in the code and are interactive thanks to the Plotly module. Other figures are available in the program such as 2D plots which allow the attributes to be varied. 
