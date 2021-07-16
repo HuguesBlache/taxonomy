@@ -801,7 +801,7 @@ def Technologies_Parallel_Cordianate(Range):
 def bar_technoly_app(test):
     count=test.groupby('Technology').count().reset_index()
     count=count.merge(technologies_data_modif.reset_index()[['Technology','Range Type']],on='Technology')
-    fig=px.bar(count,y='Application',x='Technology',color='Range Type')
+    fig=px.bar(count,y='Application',x='Technology',color='Range Type', text='Application')
     fig.update_layout(
                        yaxis=dict(
             autorange=True,
