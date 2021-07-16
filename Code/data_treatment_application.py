@@ -1023,3 +1023,16 @@ for i in technologies_data_modif.index:
     for j in range(0,len(technologies_data_modif)):
         if technologies_data_modif.index[j]==i:
             technologies_data_modif['Value'][j]=j+1
+            
+### Matrice PIVOT
+
+percentage_category_tech=application_categories.merge(test.rename(columns={'Application':'Acronym'}),on="Acronym").groupby(['Category','Technology']).size().reset_index()
+percentage_category_tech['Percentage']=np.nan
+for i in range(0,len(percentage_category_tech['Category'])):
+    percentage_category_tech['Percentage'][i]=100*percentage_category_tech[0][i]/max(percentage_category_tech[percentage_category_tech['Category']==percentage_category_tech['Category'][i]][0])
+pivot_percentage=percentage_category_tech.pivot(index='Technology', columns='Category', values='Percentage').round(1)
+
+def nan_background(val):
+        if np.isnan(val):
+            return 'background-color: white'
+pivot_table=pivot_percentage.style.format('{0}%').background_gradient(cmap='RdYlGn',axis=None).applymap(lambda x: nan_background(x))
