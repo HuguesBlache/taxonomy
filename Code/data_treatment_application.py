@@ -272,61 +272,43 @@ def bar_attribut(attribut):
 ##############boxplot_distribution##########     
 
 
-def get_mean(liste):
-    return statistics.mean(liste)
-def boxplot(test,application_categories):
+def boxplot_category(test,application_categories):
     new_test=test.rename({'Application': 'Acronym'}, axis=1)
-    application_categories_new=application_categories[['Acronym','Category']]
+    application_categories_new=application_categories[['Acronym','Category','Color']]
     fusion_tech_category=application_categories_new.merge(new_test,on='Acronym')
     boxtest=new_test.drop_duplicates()
-    boxplot_fusion=boxtest.groupby(['Acronym']).size()
-    fusion_tech_category_test={}
-    category_i=fusion_tech_category['Category']
-    category_i.drop_duplicates(keep = 'first', inplace=True)
-    add=[]
-    for i in category_i:
-        fusion_tech_category_test['%s'%(i)]=fusion_tech_category[fusion_tech_category['Category']==i].drop_duplicates()
-        add.append(pd.DataFrame(data=fusion_tech_category_test['%s'%(i)].groupby('Acronym').size(), columns=['%s'%(i)])['%s'%(i)])
-
-    add.sort(key=get_mean, reverse=False)
-    liste=[]
-    for i in range(0,len(add)):
-        liste.append(add[i].name)    
-
-    add.append(pd.DataFrame(data=boxplot_fusion, columns=["Total"])["Total"])
-    liste.append("total")
-    fig = go.Figure()
-    for i in range(0,len(add)):
-        fig.add_trace(go.Box(y=add[i], name=liste[i]))
+    boxplot_fusion=boxtest.groupby(['Acronym']).count()
+    plot_box=application_categories_new.merge(boxplot_fusion,on="Acronym")
+    fig=px.box(plot_box,y='Technology', x='Category',color='Category')
     fig.update_layout(
-                       yaxis=dict(
-            autorange=True,
-            showgrid=True,
-            zeroline=True,
-            dtick=5,
-            gridcolor='rgb(255, 255, 255)',
-            gridwidth=1,
-            zerolinecolor='rgb(255, 255, 255)',
-            zerolinewidth=2,
-                           title='Number of usable technologies'
-        ),
-        margin=dict(
-            l=40,
-            r=30,
-            b=80,
-            t=100,
-        ),
-        paper_bgcolor='rgb(243, 243, 243)',
-        plot_bgcolor='rgb(243, 243, 243)',
-                      showlegend=False)
+                   yaxis=dict(
+        autorange=True,
+        showgrid=True,
+        zeroline=True,
+        dtick=5,
+        gridcolor='rgb(255, 255, 255)',
+        gridwidth=1,
+        zerolinecolor='rgb(255, 255, 255)',
+        zerolinewidth=2,
+        title='Number of usable technologies'
+    ),
+    margin=dict(
+        l=40,
+        r=30,
+        b=80,
+        t=100,
+    ),
+    paper_bgcolor='rgb(243, 243, 243)',
+    plot_bgcolor='rgb(243, 243, 243)',
+                  showlegend=False)
     return fig
-    
+
     
 
 ##############Category_Parallel_Cordianate##########     
    
-def Category_Parallel_Cordianate(Categorie):    
-    df1=Category_KPI[Category_KPI.index==Categorie]
+def Category_Parallel_Cordianate(Category):    
+    df1=Category_KPI[Category_KPI.index==Category]
     b=df1.index    
     new_list1 = [] 
     for i in b : 
@@ -349,8 +331,52 @@ def Category_Parallel_Cordianate(Categorie):
     new_list3 = [] 
     for i in d : 
         if i not in new_list3: 
-            new_list3.append(i)         
+            new_list3.append(i)     
+            
+            
+    #########'Message size up (bits)'#############
 
+    test=df1['Message size up (bits)']
+    for j in range(0,len(test)):
+        if not test[j]>0:
+            test[j]=200
+    index_message_up=[]
+    for i in df1['Message size up (bits)'].drop_duplicates().sort_values( ascending=False):
+        if i==0:
+            index_message_up.append('nan')
+        else:
+            index_message_up.append(i)
+            
+            
+#########Message Period (ms)#############
+
+    test1=df1['Message Period (ms)']
+    for j in range(0,len(test1)):
+        if not test1[j]>0:
+            test1[j]=0
+    index_Period=[]
+    for i in df1['Message Period (ms)'].drop_duplicates().sort_values( ascending=False):
+        if i==0:
+            index_Period.append('nan')
+        else:
+            index_Period.append(i)
+
+#########Message Frequency (msg/sec)#############
+
+
+    test2=df1['Message Frequency (msg/sec)']
+    for j in range(0,len(test2)):
+        if not test2[j]>0:
+            test2[j]=0
+    index_Frequency=[]
+    for i in df1['Message Frequency (msg/sec)'].drop_duplicates().sort_values( ascending=False):
+        if i==0:
+            index_Frequency.append('nan')
+        else:
+            index_Frequency.append(i)
+        
+
+   
     fig = go.Figure(data=
         go.Parcoords(
 
@@ -359,21 +385,29 @@ def Category_Parallel_Cordianate(Categorie):
                 dict(range = [min(df1["Max latency (ms)"]),max(df1["Max latency (ms)"])],
                      label = 'Max Latency (ms)', values = df1["Max latency (ms)"]),
                   
-                dict(range = [min(df1["Message size up (bits)"]),max(df1["Message size up (bits)"])],
-                     label = 'Message size up (bits)', values = df1["Message size up (bits)"]),
+                       dict(range = [min(test),max(test)],
+    tickvals =  test.drop_duplicates().sort_values( ascending=False),
+    label = 'Message size up (bits)',
+    values =test,
+    ticktext = index_message_up),
                 
-                 dict(range = [min(df1["Message Period (ms)"]),max(df1["Message Period (ms)"])],
-                     label = 'Message Period (ms)', values = df1["Message Period (ms)"]),
-                 dict(range = [min(df1["Radio Coverage (m)"]),max(df1["Radio Coverage (m)"])],
-                     label = 'Radio Coverage (m)', values = df1["Radio Coverage (m)"]),  
-             dict(range = [min(df1["Message Frequency (msg/sec)"]),max(df1["Message Frequency (msg/sec)"])],
-                         label = 'Message Frequency (msg/sec)', values = df1["Message Frequency (msg/sec)"]),   
+                dict(range = [min(test1),max(test1)],
+    tickvals =  test1.drop_duplicates().sort_values( ascending=False),
+    label = 'Message Period (ms)',
+    values =test1,
+    ticktext = index_Period),
+                 dict(range = [min(df1["Range"]),max(df1["Range"])],
+                     label = 'Range', values = df1["Range"]),  
+             dict(range = [min(test2),max(test2)],
+    tickvals =  test2.drop_duplicates().sort_values( ascending=False),
+    label = 'Message Frequency (msg/sec)',
+    values =test2,
+    ticktext = index_Frequency),   
 
                 ])
         )
     )
     return fig.show()
-    
     
 ##############Category_Parallel_Cordianate_Application##########      
 def Category_Parallel_Cordianate_Application(df1):    
@@ -690,17 +724,17 @@ def plot_bar_category(KPI):
 
 
 
-def plot_category_kpi_2d(abscisse,ordonne):
+def plot_category_kpi_2d(x_axis,y_axis):
     df=Category_KPI.iloc[:, np.r_[1:11]]
-    fig = px.scatter(df, x=df[abscisse],y=df[ordonne],color=df.index, log_x=True,log_y=True)
+    fig = px.scatter(df, x=df[x_axis],y=df[y_axis],color=df.index, log_x=True,log_y=True)
     return fig.show()
    
    
 ##############plot_technologies##########          
 
 
-def plot_technologies(abscisse,ordonne):
-    fig = px.scatter(technologies_data,text=technologies_data.index, x=abscisse,y=ordonne,color="Range Type", log_x=True,log_y=True)
+def plot_technologies(x_axis,y_axis):
+    fig = px.scatter(technologies_data,text=technologies_data.index, x=x_axis,y=y_axis,color="Range Type", log_x=True,log_y=True)
     return fig.show()
 
 
@@ -708,8 +742,8 @@ def plot_technologies(abscisse,ordonne):
 
 
 
-def plot_technologies(abscisse,ordonne):
-    fig = px.scatter(technologies_data,text=technologies_data.index, x=abscisse,y=ordonne,color="Range Type", log_x=True,log_y=True)
+def plot_technologies(x_axis,y_axis):
+    fig = px.scatter(technologies_data,text=technologies_data.index, x=x_axis,y=y_axis,color="Range Type", log_x=True,log_y=True)
     return fig.show()
 
 ##############tableau_fusion##########          
@@ -761,7 +795,35 @@ def Technologies_Parallel_Cordianate(Range):
     
     
     return fig.show()   
-   
+
+##############bar_technoly_app##########      
+  
+def bar_technoly_app(test):
+    count=test.groupby('Technology').count().reset_index()
+    count=count.merge(technologies_data_modif.reset_index()[['Technology','Range Type']],on='Technology')
+    fig=px.bar(count,y='Application',x='Technology',color='Range Type')
+    fig.update_layout(
+                       yaxis=dict(
+            autorange=True,
+            showgrid=True,
+            zeroline=True,
+            dtick=5,
+            gridcolor='rgb(255, 255, 255)',
+            gridwidth=1,
+            zerolinecolor='rgb(255, 255, 255)',
+            zerolinewidth=2,
+            title='Number of applications'
+        ),
+        margin=dict(
+            l=40,
+            r=30,
+            b=80,
+            t=100,
+        ),
+        paper_bgcolor='rgb(243, 243, 243)',
+        plot_bgcolor='rgb(243, 243, 243)')
+    fig.update_layout(barmode='stack', xaxis={'categoryorder':'total ascending'})   
+    return fig
 ##################################### END FUNCTION #######################################################
 
 
