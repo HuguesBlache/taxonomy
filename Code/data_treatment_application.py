@@ -1031,8 +1031,9 @@ percentage_category_tech['Percentage']=np.nan
 for i in range(0,len(percentage_category_tech['Category'])):
     percentage_category_tech['Percentage'][i]=100*percentage_category_tech[0][i]/max(percentage_category_tech[percentage_category_tech['Category']==percentage_category_tech['Category'][i]][0])
 pivot_percentage=percentage_category_tech.pivot(index='Technology', columns='Category', values='Percentage').round(1)
+for i in pivot_percentage.columns:
+    for j in pivot_percentage.index:
+        if np.isnan(pivot_percentage[i][j]):
+            pivot_percentage[i][j]=0
 
-def nan_background(val):
-        if np.isnan(val):
-            return 'background-color: white'
-pivot_table=pivot_percentage.style.format('{0}%').background_gradient(cmap='RdYlGn',axis=None).applymap(lambda x: nan_background(x))
+pivot_table=pivot_percentage.style.format('{0}%').background_gradient(cmap='RdYlGn',axis=None)
