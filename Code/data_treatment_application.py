@@ -996,15 +996,21 @@ application_communication_mode_columns = application_communication_mode.rename(c
 merge_com_app_tech=pd.merge(communication_mode_technologies, application_communication_mode_columns, on="Type")
 
 
-application_requirement=application_data.iloc[:, np.r_[1,38:48]]
+application_requirement=application_data.iloc[:, np.r_[1,38:48,50:53]]
 application_requirement.set_index("Acronym", inplace = True)
 technologies_performances=technologies_data.iloc[:, np.r_[2:15]]
 colnames = ['Application','Technology']
 test = pd.DataFrame(columns = colnames)
 for i in range(0,len(merge_com_app_tech)):
-    if int(application_requirement["Max latency (ms)"][merge_com_app_tech['Name'][i]])>int(technologies_performances["Delay (ms)"][merge_com_app_tech['Technologies'][i]]) and int(application_requirement["Range"][merge_com_app_tech['Name'][i]])<int(technologies_performances["Max Range (m)"][merge_com_app_tech['Technologies'][i]]):
-            test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]}))
-
+    ### FILTRAGE DES TYPE DE COMMUNICATION SI V2V OU V2P on prends le range sinon non Rien
+    
+    ## pour les V2V
+    if application_requirement['V2V'][merge_com_app_tech['Name'][i]]=='V2V' and application_requirement['V2I'][merge_com_app_tech['Name'][i]]!='V2I' and int(application_requirement["Max latency (ms)"][merge_com_app_tech['Name'][i]])>int(technologies_performances["Delay (ms)"][merge_com_app_tech['Technologies'][i]]) and int(application_requirement["Range"][merge_com_app_tech['Name'][i]])<int(technologies_performances["Max Range (m)"][merge_com_app_tech['Technologies'][i]])and int(application_requirement["Data Rate"][merge_com_app_tech['Name'][i]])<int(technologies_performances['Data Rate (Mb/s)'][merge_com_app_tech['Technologies'][i]]*10**6):
+        test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]}))
+    elif application_requirement['V2P'][merge_com_app_tech['Name'][i]]=='V2P' and application_requirement['V2I'][merge_com_app_tech['Name'][i]]!='V2I' and int(application_requirement["Max latency (ms)"][merge_com_app_tech['Name'][i]])>int(technologies_performances["Delay (ms)"][merge_com_app_tech['Technologies'][i]]) and int(application_requirement["Range"][merge_com_app_tech['Name'][i]])<int(technologies_performances["Max Range (m)"][merge_com_app_tech['Technologies'][i]]) and int(application_requirement["Data Rate"][merge_com_app_tech['Name'][i]])<int(technologies_performances['Data Rate (Mb/s)'][merge_com_app_tech['Technologies'][i]]*10**6):
+        test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]}))
+    elif int(application_requirement["Max latency (ms)"][merge_com_app_tech['Name'][i]])>int(technologies_performances["Delay (ms)"][merge_com_app_tech['Technologies'][i]]) and int(application_requirement["Range"][merge_com_app_tech['Name'][i]])<int(technologies_performances["Max Range (m)"][merge_com_app_tech['Technologies'][i]])and int(application_requirement["Data Rate"][merge_com_app_tech['Name'][i]])<int(technologies_performances['Data Rate (Mb/s)'][merge_com_app_tech['Technologies'][i]]*10**6):
+        test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]}))
 
 ## Treatement Techologie
 
