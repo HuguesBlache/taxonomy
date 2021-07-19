@@ -279,6 +279,10 @@ def boxplot_category(test,application_categories):
     boxtest=new_test.drop_duplicates()
     boxplot_fusion=boxtest.groupby(['Acronym']).count()
     plot_box=application_categories_new.merge(boxplot_fusion,on="Acronym")
+    Catagory_sort=plot_box.groupby('Category').median().reset_index().sort_values(['Technology'])
+    size_categrory_merge=plot_box.groupby('Category').count().reset_index().merge(Catagory_sort,on="Category")
+    array_name=size_categrory_merge.sort_values(['Technology_y','Technology_x'], ascending=[True, False])
+    #plot_box=plot_box.sort_values(['Technology'])
     fig=px.box(plot_box,y='Technology', x='Category',color='Category')
     fig.update_layout(
                    yaxis=dict(
@@ -298,11 +302,14 @@ def boxplot_category(test,application_categories):
         b=80,
         t=100,
     ),
+
     paper_bgcolor='rgb(243, 243, 243)',
     plot_bgcolor='rgb(243, 243, 243)',
                   showlegend=False)
+    fig.update_xaxes(categoryorder='array',categoryarray=array_name['Category'])
     return fig
 
+    
     
 
 ##############Category_Parallel_Cordianate##########     
@@ -801,7 +808,7 @@ def Technologies_Parallel_Cordianate(Range):
 def bar_technoly_app(test):
     count=test.groupby('Technology').count().reset_index()
     count=count.merge(technologies_data_modif.reset_index()[['Technology','Range Type']],on='Technology')
-    fig=px.bar(count,y='Application',x='Technology',color='Range Type', text='Application')
+    fig=px.bar(count,y='Application',x='Technology',color='Range Type', text='Application',pattern_shape="Range Type", pattern_shape_sequence=["\\", "+", "+",""])
     fig.update_layout(
                        yaxis=dict(
             autorange=True,
@@ -812,17 +819,21 @@ def bar_technoly_app(test):
             gridwidth=1,
             zerolinecolor='rgb(255, 255, 255)',
             zerolinewidth=2,
-            title='Number of applications'
+            title='Number of applications',spikecolor="white"
+                           
+                        
         ),
         margin=dict(
             l=40,
             r=30,
-            b=80,
-            t=100,
+            b=50,
+            t=85,
         ),
         paper_bgcolor='rgb(243, 243, 243)',
         plot_bgcolor='rgb(243, 243, 243)')
-    fig.update_layout(barmode='stack', xaxis={'categoryorder':'total ascending'})   
+    fig.update_layout(barmode='stack', xaxis={'categoryorder':'total ascending'})
+    fig.update_traces( textposition='outside')
+    fig.update_layout(uniformtext_minsize=5, uniformtext_mode='show')    
     return fig
 ##################################### END FUNCTION #######################################################
 
@@ -997,22 +1008,37 @@ merge_com_app_tech=pd.merge(communication_mode_technologies, application_communi
 
 application_requirement=application_data.iloc[:, np.r_[1,38:48,50:53]]
 application_requirement.set_index("Acronym", inplace = True)
-technologies_performances=technologies_data.iloc[:, np.r_[2:15]]
+technologies_performances=technologies_data.iloc[:, np.r_[2:16]]
 #technologies_performances=technologies_performances.merge(communication_mode_technologies.rename(columns={'Technologies':'Technology'}),on="Technology")
 colnames = ['Application','Technology']
 test = pd.DataFrame(columns = colnames)
 for i in range(0,len(merge_com_app_tech)):
-    ### FILTRAGE DES TYPE DE COMMUNICATION SI V2V OU V2P on prends le range sinon non Rien
+    Name_app=merge_com_app_tech['Name'][i]
+    Name_tech=merge_com_app_tech['Technologies'][i]
+    if merge_com_app_tech[merge_com_app_tech.Name==Name_app]['Type'][i]=='V2P' and \
+    'V2I' not in merge_com_app_tech[merge_com_app_tech.Name==Name_app]['Type'].tolist() and \
+    int(application_requirement["Max latency (ms)"][merge_com_app_tech['Name'][i]])>int(technologies_performances["Delay (ms)"][merge_com_app_tech['Technologies'][i]]) and\
+    int(application_requirement["Range"][Name_app])<int(technologies_performances["Max Range (m)"][Name_tech])and\
+    int(application_requirement["Data Rate"][Name_app])<int(technologies_performances['Data Rate (Mb/s)'][Name_tech]*10**6):
+        test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]}))
+        
+        
+    elif merge_com_app_tech[merge_com_app_tech.Name==Name_app]['Type'][i]=='V2V' and \
+    'V2I' not in merge_com_app_tech[merge_com_app_tech.Name==Name_app]['Type'].tolist() and \
+    int(application_requirement["Max latency (ms)"][merge_com_app_tech['Name'][i]])>int(technologies_performances["Delay (ms)"][merge_com_app_tech['Technologies'][i]]) and\
+    int(application_requirement["Range"][Name_app])<int(technologies_performances["Max Range (m)"][Name_tech])and\
+    int(application_requirement["Data Rate"][Name_app])<int(technologies_performances['Data Rate (Mb/s)'][Name_tech]*10**6):
+        test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]}))
     
-    ## pour les V2V
-    if application_requirement['V2V'][merge_com_app_tech['Name'][i]]=='V2V' and application_requirement['V2I'][merge_com_app_tech['Name'][i]]!='V2I' and int(application_requirement["Max latency (ms)"][merge_com_app_tech['Name'][i]])>int(technologies_performances["Delay (ms)"][merge_com_app_tech['Technologies'][i]]) and int(application_requirement["Range"][merge_com_app_tech['Name'][i]])<int(technologies_performances["Max Range (m)"][merge_com_app_tech['Technologies'][i]])and int(application_requirement["Data Rate"][merge_com_app_tech['Name'][i]])<int(technologies_performances['Data Rate (Mb/s)'][merge_com_app_tech['Technologies'][i]]*10**6) and 'V2V' in merge_com_app_tech[merge_com_app_tech['Technologies']==merge_com_app_tech['Technologies'][i]]['Type'].drop_duplicates().unique():
-        test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]}))
-    elif application_requirement['V2P'][merge_com_app_tech['Name'][i]]=='V2P' and application_requirement['V2I'][merge_com_app_tech['Name'][i]]!='V2I' and int(application_requirement["Max latency (ms)"][merge_com_app_tech['Name'][i]])>int(technologies_performances["Delay (ms)"][merge_com_app_tech['Technologies'][i]]) and int(application_requirement["Range"][merge_com_app_tech['Name'][i]])<int(technologies_performances["Max Range (m)"][merge_com_app_tech['Technologies'][i]]) and int(application_requirement["Data Rate"][merge_com_app_tech['Name'][i]])<int(technologies_performances['Data Rate (Mb/s)'][merge_com_app_tech['Technologies'][i]]*10**6) and 'V2P' in merge_com_app_tech[merge_com_app_tech['Technologies']==merge_com_app_tech['Technologies'][i]]['Type'].drop_duplicates().unique():
-        test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]}))
-    elif int(application_requirement["Max latency (ms)"][merge_com_app_tech['Name'][i]])>int(technologies_performances["Delay (ms)"][merge_com_app_tech['Technologies'][i]]) and int(application_requirement["Range"][merge_com_app_tech['Name'][i]])<int(technologies_performances["Max Range (m)"][merge_com_app_tech['Technologies'][i]])and int(application_requirement["Data Rate"][merge_com_app_tech['Name'][i]])<int(technologies_performances['Data Rate (Mb/s)'][merge_com_app_tech['Technologies'][i]]*10**6):
-        test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]}))
+    elif int(application_requirement["Max latency (ms)"][merge_com_app_tech['Name'][i]])>int(technologies_performances["Delay (ms)"][merge_com_app_tech['Technologies'][i]]) and\
+    int(application_requirement["Data Rate"][Name_app])<int(technologies_performances['Data Rate (Mb/s)'][Name_tech]*10**6):
+         if int(application_requirement["Range"][merge_com_app_tech['Name'][i]])<int(technologies_performances["Max Range (m)"][merge_com_app_tech['Technologies'][i]]) and\
+         technologies_performances["Dense Deployment"][Name_tech]=='No':
+            test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]}))
+         elif technologies_performances["Dense Deployment"][Name_tech]=='Yes':
+            test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]})) 
+    
 test=test.drop_duplicates()
-
 
 ## Treatement Techologie
 
