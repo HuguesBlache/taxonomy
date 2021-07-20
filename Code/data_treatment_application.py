@@ -1030,7 +1030,7 @@ for i in range(0,len(merge_com_app_tech)):
     int(application_requirement["Data Rate"][Name_app])<int(technologies_performances['Data Rate (Mb/s)'][Name_tech]*10**6):
         test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]}))
     
-    elif int(application_requirement["Max latency (ms)"][merge_com_app_tech['Name'][i]])>int(technologies_performances["Delay (ms)"][merge_com_app_tech['Technologies'][i]]) and\
+    elif 'V2I' in merge_com_app_tech[merge_com_app_tech.Name==Name_app]['Type'].tolist() and int(application_requirement["Max latency (ms)"][merge_com_app_tech['Name'][i]])>int(technologies_performances["Delay (ms)"][merge_com_app_tech['Technologies'][i]]) and\
     int(application_requirement["Data Rate"][Name_app])<int(technologies_performances['Data Rate (Mb/s)'][Name_tech]*10**6):
          if int(application_requirement["Range"][merge_com_app_tech['Name'][i]])<int(technologies_performances["Max Range (m)"][merge_com_app_tech['Technologies'][i]]) and\
          technologies_performances["Dense Deployment"][Name_tech]=='No':
