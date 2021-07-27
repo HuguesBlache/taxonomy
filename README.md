@@ -23,7 +23,7 @@ Cite: <i> A Mapping of Connected Vehicles Applications Requirements on Telecommu
 
 <h2 align="center">Data</h2>
 
-The data was compiled on a <i> <a href="https://docs.google.com/spreadsheets/d/1OfUOVvTzfcZZhlYli21-WmcEfmikRiymsMdYXG2SAA4/edit#gid=386603968">Google sheet</a></i>. The data is synchronized directly with the Binder, that is to say that with each change, the figures change for each recompilation of the scripts. 
+The data was compiled on a <i> <a href="https://docs.google.com/spreadsheets/d/1OfUOVvTzfcZZhlYli21-WmcEfmikRiymsMdYXG2SAA4/edit?usp=sharing">Google sheet</a></i>. The data is synchronized directly with the Binder, that is to say that with each change, the figures change for each recompilation of the scripts. 
 
 Some data is not fully exploited because the Google sheet is just a collection of data. Thus, it is possible that unclear data vis-à-vis the studies are not taken into account in the programs. 
 
