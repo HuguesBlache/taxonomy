@@ -1,0 +1,450 @@
+\section{Definition of applications}\label{appendix:app}
+\begin{enumerate}
+\item \textbf{\acrfull{ATTCRW}}: This application ``informs approaching drivers/vehicles that another vehicle intends to turn across traffic'' \cite{etsi_etsi_tr_102_638_intelligent_2009,j_vehicle--vehicle_2014,al-sultan_comprehensive_2014,miucic_v2x_2018,cailean_survey_2014,xu_dsrc_2017,zeadally_tutorial_2020,usdt_intelligent_2021}.
+\item \textbf{\acrfull{AAC}}: This application consists of an authorized vehicle transmitting its identity to access a controlled area. \cite{etsi_etsi_tr_102_638_intelligent_2009}.
+\item \textbf{\acrfull{CTR}}: This application assigns to users vehicles shared or to rent and ``releases returned vehicles after collecting their reports''. \cite{etsi_etsi_tr_102_638_intelligent_2009,3gpp_tr_22886_3rd_2018}.
+\item \textbf{\acrfull{CACC}}: This application provides drivers/vehicles information about the lead vehicle dynamics to improve existing \acrfull{ACC} (\acrshort{ACC} ``automatically adjusts the vehicle speed to maintain a safe distance from the lead vehicle'') ( \cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009,brown_review_2019,zeadally_tutorial_2020,zeng_potential_2012,chang_estimated_2015,usdt_intelligent_2021}.
+\item \textbf{\acrfull{CFCW}}: This application cooperatively detects a risk of longitudinal collision and attempts to avoid a crash either through driver assistance (information) or direct vehicle control (automated) \cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009,brown_review_2019,boban_use_2017,3gpp_tr_22886_3rd_2018,raza_social_2018,karagiannis_vehicular_2011,chang_intelligent_2010,cailean_survey_2014, xu_dsrc_2017,bila_vehicles_2017,5gpp_5g_2015,gupta_medium_2015,dey_vehicle--vehicle_2016,xiang_research_2014,ye_v2v_2008,usdt_intelligent_2021}.
+\item \textbf{\acrfull{CGR}}: This application allows a vehicle to ``automatically switch from high-beams to low-beams when detecting a vehicle arriving in the opposite direction \cite{etsi_etsi_tr_102_638_intelligent_2009,brown_review_2019}.
+\item \textbf{\acrfull{CMA}}: This application allows drivers to negotiate together the merging process (insertion from a minor to a major road) to avoid a crash~\cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009,j_vehicle--vehicle_2014,al-sultan_comprehensive_2014,karagiannis_vehicular_2011}.
+\item \textbf{\acrfull{CVHAS}}: This application, also called ``platooning'', allows ``vehicles to operate safely as a platoon on a highway or specific lane''. \cite{etsi_etsi_tr_102_638_intelligent_2009,brown_review_2019}.
+\item \textbf{\acrfull{CRWRSU}}: This application allows a \acrshort{RSU} to detect a risk of crash between two or more vehicles and to warn the drivers about this risk. \cite{etsi_etsi_tr_102_638_intelligent_2009,j_vehicle--vehicle_2014}.
+\item \textbf{\acrfull{CLW}}: This application allows ``a vehicle to generate and broadcast a control-loss event to surrounding vehicles'' \cite{karagiannis_vehicular_2011}.
+\item \textbf{\acrfull{EDCV}}: This application enables \acrshort{RSU}s to collect ``vehicle life cycle data for design re-use and change management''; variations of this application include the collection of ``ecologic/economic driving assistance data through exchanges between vehicles (passing by or parked)'' \cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009,chang_estimated_2015};
+\item \textbf{\acrfull{ETC}}: This application allows a \acrshort{RSU} ``to control access to a road network part after electronic toll collect'' \cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009,brown_review_2019}.
+\item \textbf{\acrfull{EEBL}}: This application corresponds to ``the switch on of emergency electronic brake lights''; the vehicle can thus ``signal its hard braking to its local followers'' to limit the risk of longitudinal crash \cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009,brown_review_2019,j_vehicle--vehicle_2014,hamida_security_2015,boban_use_2017,etsi_tr_102_863_intelligent_2011,al-sultan_comprehensive_2014,miucic_v2x_2018,karagiannis_vehicular_2011,xu_dsrc_2017,zeadally_tutorial_2020,usdt_intelligent_2021}.
+\item \textbf{\acrfull{EVSP}}: TODO This application uses infrastructure and communications to support emergency vehicles by sending environmental messages, especially with traffic lights. \cite{al-sultan_comprehensive_2014}
+\item \textbf{\acrfull{EVW}}: This application is used to indicate the presence of an emergency vehicle to other vehicles. \cite{etsi_etsi_tr_102_638_intelligent_2009,raza_social_2018,al-sultan_comprehensive_2014,karagiannis_vehicular_2011,buchenscheit_vanet-based_2009}
+\item \textbf{\acrfull{ERGN}}:This application allows a road unit to issue routes optimized according to the personalized needs of the driver. \cite{etsi_etsi_tr_102_638_intelligent_2009}
+\item \textbf{\acrfull{FM}}: This application uses the vehicle collection to do fleet management. \cite{etsi_etsi_tr_102_638_intelligent_2009}
+\item \textbf{\acrfull{FADL}}: This application authorizes the access of certain vehicles on a permanent or temporary basis to lanes reserved for certain cases. \cite{etsi_etsi_tr_102_638_intelligent_2009,brown_review_2019, hobert_enhancements_2015}
+\item \textbf{\acrfull{GIS}}:This application allows data obtained directly through the Internet to be transmitted. \cite{karagiannis_vehicular_2011}
+\item \textbf{\acrfull{HLN}}:This application allows vehicles to be informed of the presence of an object on the road. \cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009,j_vehicle--vehicle_2014}
+\item \textbf{\acrfull{HCW}}: This application makes it possible to inform vehicles traveling in the opposite direction in front of other vehicles of the risk of a head collision. \cite{karagiannis_vehicular_2011,chang_intelligent_2010,xiang_research_2014,usdt_intelligent_2021,ye_v2v_2008}
+\item \textbf{\acrfull{IS}}: This application transmits traffic sign information to vehicles. \cite{etsi_etsi_tr_102_638_intelligent_2009}
+\item \textbf{\acrfull{IM}}: This application allows instant messaging between several vehicles. \cite{etsi_etsi_tr_102_638_intelligent_2009}
+%%\item \textbf{\acrfull{IFS}}: This application allows to interact with insurance and financial coverage on vehicle behavior. \cite{etsi_etsi_tr_102_638_intelligent_2009}
+\item \textbf{\acrfull{ICW}}: This application consists of informing users of a risk of collision at an intersection.\cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009,j_vehicle--vehicle_2014,al-sultan_comprehensive_2014,karagiannis_vehicular_2011,araniti_lte_2013,gupta_medium_2015,abid_pedestrian_2013}
+\item \textbf{\acrfull{InM}}: This application optimizes traffic efficiency in interactions \cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009, hobert_enhancements_2015}
+\item \textbf{\acrfull{LCA}}: This application makes it possible to help a vehicle that wishes to change lane by having the status of the vehicles on the other lanes. \cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009,brown_review_2019,boban_use_2017,al-sultan_comprehensive_2014,karagiannis_vehicular_2011,chang_intelligent_2010,cailean_survey_2014,zeadally_tutorial_2020,bila_vehicles_2017,usdt_intelligent_2021}
+\item \textbf{\acrfull{LM}}: A DEFINIR \cite{dar_wireless_2010,usdt_intelligent_2021}
+%\item \textbf{\acrfull{LWA}}: This application warns of restricted road conditions for vehicles and provides guidance on new routes. \cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009}
+\item \textbf{\acrfull{LZM}}: This application allows all freight agents to interact with their businesses and other users of vehicle loading and unloading. \cite{etsi_etsi_tr_102_638_intelligent_2009}
+\item \textbf{\acrfull{LEC}}: This application allows vehicles and road infrastructure to make local payments for reservations and purchases. \cite{etsi_etsi_tr_102_638_intelligent_2009}
+\item \textbf{\acrfull{LWZM}}: This application uses the operation of low emission zones to regulate and manage traffic in that zone. \cite{usdt_intelligent_2021,chang_estimated_2015}
+\item \textbf{\acrfull{MDU}}: Ce cas d'utilisation permets à une unité routière de transmettre des informations topographiques au véhicules. \cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009,ngmn_alliance_perspectives_2016,hussain_autonomous_2019}
+\item \textbf{\acrlong{MD}}: This application enables the transmission of multimedia content for passenger entertainment. \cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009,etsi_tr_102_863_intelligent_2011,xu_dsrc_2017,ngmn_alliance_perspectives_2016,gerla_vehicular_2011}
+\item \textbf{\acrfull{MTTCRW}}: This application conveys information from a vehicle entering traffic and turn. \cite{etsi_etsi_tr_102_638_intelligent_2009,j_vehicle--vehicle_2014,wu_evaluation_2018}
+\item \textbf{\acrfull{MW}}: This application allows vehicles to have information about the presence of a motorcycle. \cite{etsi_etsi_tr_102_638_intelligent_2009,connected_motorcycle_consortium_applications_2021}
+\item \textbf{\acrfull{OVW}}: This application allows an overtaking vehicle to ``signal its action to other local vehicles to secure the overtaking'' \cite{etsi_etsi_tr_102_638_intelligent_2009,j_vehicle--vehicle_2014,karagiannis_vehicular_2011,mo_simulation_2018}.
+\item \textbf{\acrfull{PA}}: This application assists in the management and assistant of parking and vehicle parking demand \cite{faria_smart_2017,boban_use_2017,ferreira_self-automated_2014,usdt_intelligent_2021}
+\item \textbf{\acrfull{PIN}}: This application informs the user of local services and points of interest. \cite{etsi_etsi_tr_102_638_intelligent_2009}
+\item \textbf{\acrfull{PCW}}: A DEFINIR \cite{al-sultan_comprehensive_2014}
+\item \textbf{\acrfull{PCSW}}: This application aims to ``prepare for imminent and unavoidable crash by exchanging vehicle information after unavoidable crash is detected''~\cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009,karagiannis_vehicular_2011,chang_intelligent_2010,cailean_survey_2014,xu_dsrc_2017,sewalkar_vehicle--pedestrian_2019,zeadally_tutorial_2020,swanson_crash_2016}; % done
+\item \textbf{\acrlong{CSL}}: This application allows a road infrastructure to broadcast speed limits to surrounding vehicles. \cite{etsi_etsi_tr_102_638_intelligent_2009,cailean_survey_2014, xu_dsrc_2017,usdt_intelligent_2021}
+\item \textbf{\acrfull{RD}}: This application allows to transmit to a vehicle its diagnostic and repair notification emitter \cite{etsi_etsi_tr_102_638_intelligent_2009}
+\item \textbf{\acrfull{RW}}: This application makes it possible to provide information on the state of road works and the constraints related to this state to vehicles. \cite{etsi_etsi_tr_102_638_intelligent_2009,brown_review_2019,usdt_intelligent_2021}
+\item \textbf{\acrfull{SFONCW}}: This application allows a vehicle to communicate its abnormal and dangerous state to other vehicles. \cite{etsi_etsi_tr_102_638_intelligent_2009}
+\item \textbf{\acrfull{DS}} \cite{etsi_etsi_tr_102_638_intelligent_2009}: A DEFINIR
+\item \textbf{\acrfull{SiVW}}: This application allows the traffic signal violation from a user to be transmitted to vehicles. \cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009,al-sultan_comprehensive_2014,cailean_survey_2014,xu_dsrc_2017,usdt_intelligent_2021}
+%\item \textbf{\acrfull{SIVW}}: This application is used to communicate the presence of a slow vehicle to other vehicles that may interfere with traffic. \cite{etsi_etsi_tr_102_638_intelligent_2009,papadimitratos_vehicular_2009}
+\item \textbf{\acrlong{SOSS}}: This application triggers an SOS alarm for a fatal emergency assistance request. \cite{etsi_etsi_tr_102_638_intelligent_2009,al-sultan_comprehensive_2014}
+\item \textbf{\acrfull{SM}}:This application makes it possible to help a vehicle adapted to its speed to improve traffic, to make it safer and more pleasant while having an ecological and economical driving. \cite{etsi_etsi_tr_102_638_intelligent_2009,karagiannis_vehicular_2011,rakha_eco-driving_2011,xiuzheng_model_2015,usdt_intelligent_2021}
+\item \textbf{\acrfull{StVW}}: This application consists of transmitting information to vehicles of the presence of an immobilized vehicle and which presents a danger to traffic. \cite{etsi_etsi_tr_102_638_intelligent_2009,karagiannis_vehicular_2011}
+\item \textbf{\acrfull{SVA}}: This application makes it possible to transmit to the security agency a stolen vehicle \cite{etsi_etsi_tr_102_638_intelligent_2009}
+\item \textbf{\acrfull{TOD}}: A DEFINIR
+%\item \textbf{\acrfull{RCW}}: Ce cas d'utilisation sert à transmettre l'information d'un véhciules ou d'une station routiere de l'état du traffic à d'autres véhicules. \cite{etsi_etsi_tr_102_638_intelligent_2009,brown_review_2019,karagiannis_vehicular_2011,chang_estimated_2015}
+\item \textbf{\acrfull{TIRI}}:This application informs one or more drivers of traffic conditions and suggests alternative routes in the event of congestion. \cite{etsi_etsi_tr_102_638_intelligent_2009,xu_dsrc_2017,ngmn_alliance_perspectives_2016,usdt_intelligent_2021}
+\item \textbf{\acrfull{TLOSP}}: This application makes it possible to broadcast the status of a traffic light to approaching vehicles. \cite{etsi_etsi_tr_102_638_intelligent_2009,vandung_nguyen_efficient_2016,usdt_intelligent_2021}
+\item \textbf{\acrfull{TVSP}}:This application enables strategic intersiton control to improve public transport services \cite{hu_transit_2014,hu_coordinated_2015,yang_implementing_2019,lee_transit_2017,zeng_potential_2012,he_multi-modal_2014}
+\item \textbf{\acrfull{VRSUDC}}: This application enables software downloads for the vehicle that can potentially improve the capability or this information. \cite{etsi_etsi_tr_102_638_intelligent_2009}
+\item \textbf{\acrfull{VS}}: This application uses infrastructure and automotive traffic data to update traffic status \cite{etsi_etsi_tr_102_638_intelligent_2009,boban_use_2017,raza_social_2018}
+\item \textbf{\acrfull{VRUW}}: This application is used to communicate to vehicles the presence of user vulnerabilities, such as users in actives modes. \cite{etsi_etsi_tr_102_638_intelligent_2009,anaya_vulnerable_2015,raza_social_2018,al-sultan_comprehensive_2014,sewalkar_vehicle--pedestrian_2019,bila_vehicles_2017,5gpp_5g_2015,usdt_intelligent_2021,zeng_potential_2012,boban_use_2017}
+\item \textbf{\acrfull{WWDW}}: This application allows information to be transmitted to vehicles when another vehicle is present in the wrong direction. \cite{etsi_etsi_tr_102_638_intelligent_2009,karagiannis_vehicular_2011,zeng_potential_2012,vogel_cloud-based_2017}
+\end{enumerate}
+
+
+\section{Acronyms}
+\printnoidxglossary[type=\acronymtype]
+%\section{Definition of the applications}
+
+
+% \begin{figure*}[ht!]
+%   \begin{center}
+%     \includegraphics[width=11cm]{road_type.png}
+%     \caption{Road Type Application}
+%     \label{fig:road_type}
+%   \end{center}
+% \end{figure*}
+
+
+
+% \begin{figure*}[ht!]
+%   \begin{center}
+%     \includegraphics[width=11cm]{application_mecanisme.png}
+%     \caption{Mecanisme Application}
+%     \label{fig:application_mecanisme}
+%   \end{center}
+% \end{figure*}
+
+
+
+% \begin{figure*}[ht!]
+%   \begin{center}
+
+%     \includegraphics[width=16cm]{communication_mode_technologies.pdf}
+%     \caption{mode of communication of each technology}
+%     \label{fig:mode-com-tech}
+%   \end{center}
+% \end{figure*}
+
+
+% \begin{figure*}[ht!]
+%   \begin{center}
+%     \includegraphics[width=15.5cm]{application_communication_mode.pdf}
+%     \caption{mode of communication of application}
+%     \label{fig:mode-com-app}
+% \end{center}
+% \end{figure*}
+
+
+
+
+
+% \begin{figure*}[ht!]
+%   \begin{center}
+%     \includegraphics[width=17cm]{latencypriority.png}
+%     \caption{Latency and priority of application}
+%     \label{fig:latency-priority}
+%   \end{center}
+% \end{figure*}
+
+
+
+% \begin{figure*}[ht!]
+% \centering
+% \subfloat[Access]{\includegraphics[width=0.55\textwidth]{para_coor/access.png}}
+% \subfloat[Confort]{\includegraphics[width=0.55\textwidth]{para_coor/confort.png}}
+% \end{figure*}
+% \begin{figure*}[ht!]
+% \ContinuedFloat
+% \centering
+% \subfloat[Data collection]{\includegraphics[width=0.55\textwidth]{para_coor/data_collection.png}}
+% \subfloat[Economical]{\includegraphics[width=0.55\textwidth]{para_coor/economical.png}}
+% \end{figure*}
+% \begin{figure*}[ht!]
+% \ContinuedFloat
+% \centering
+% \subfloat[Efficiency]{\includegraphics[width=0.55\textwidth]{para_coor/efficiency.png}}
+% \subfloat[Energy]{\includegraphics[width=0.55\textwidth]{para_coor/energy.png}}
+% \end{figure*}
+% \begin{figure*}[ht!]
+% \ContinuedFloat
+% \centering
+% \subfloat[Entertainment]{\includegraphics[width=0.55\textwidth]{para_coor/entertainment.png}}
+% \subfloat[Environnement]{\includegraphics[width=0.55\textwidth]{para_coor/enviro.png}}
+% \end{figure*}
+% \begin{figure*}[ht!]
+% \ContinuedFloat
+% \centering
+% \subfloat[Freight]{\includegraphics[width=0.55\textwidth]{para_coor/freight.png}}
+% \subfloat[Parking]{\includegraphics[width=0.55\textwidth]{para_coor/parking.png}}
+% \end{figure*}
+% \begin{figure*}[ht!]
+% \ContinuedFloat
+% \centering
+% \subfloat[Safety]{\includegraphics[width=0.55\textwidth]{para_coor/safety.png}}
+% \subfloat[Security]{\includegraphics[width=0.55\textwidth]{para_coor/security.png}}
+% \end{figure*}
+% \begin{figure*}[ht!]
+% \ContinuedFloat
+% \centering
+% \subfloat[Shared Transport]{\includegraphics[width=0.55\textwidth]{para_coor/shared_transport.png}}
+% \subfloat[Travel Information]{\includegraphics[width=0.55\textwidth]{para_coor/travel_information.png}}
+% \end{figure*}
+% \begin{figure*}[ht!]
+% \ContinuedFloat
+% \centering
+% \subfloat[Vehicule Maitenance]{\includegraphics[width=0.55\textwidth]{para_coor/vehicle_maitenance.png}}
+% \caption{Parallel coordinates Category KPI}
+% \end{figure*}
+
+%\FloatBarrier
+
+\begin{table}[ht!]
+\centering
+\caption{Long Range and application (first part)}
+    \label{fig:techandapplong}
+\begin{tabular}{cllllll}
+\hline
+\textbf{Application} & \multicolumn{1}{c}{\textbf{5G Low}} & \multicolumn{1}{c}{\textbf{5G Mid}} & \multicolumn{1}{c}{\textbf{5G mmWavve}} & \multicolumn{1}{c}{\textbf{Ingenu-RPMA}} & \multicolumn{1}{c}{\textbf{LoRa (Rural)}} & \multicolumn{1}{c}{\textbf{LoRa (Urban)}} \\
+\hline
+\textbf{AAC}         & Yes                                 & Yes                                 & -                                       & Yes                                      & Yes                                       & Yes                                       \\
+\textbf{ATTCRW}      & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{CACC}        & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{CFCW}        & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{CGR}         & Yes                                 & Yes                                 & Yes                                     & -                                        & -                                         & -                                         \\
+\textbf{CLCA}        & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{CLW}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{CMA}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{CRWRSU}      & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{CSL}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{CTR}         & Yes                                 & Yes                                 & -                                       & Yes                                      & Yes                                       & Yes                                       \\
+\textbf{CVHAS}       & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{DS}          & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{EDCV}        & Yes                                 & Yes                                 & -                                       & Yes                                      & Yes                                       & Yes                                       \\
+\textbf{EEBL}        & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{ERGN}        & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{ETC}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{EVSP}        & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{EVW}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{FM}          & Yes                                 & Yes                                 & -                                       & Yes                                      & Yes                                       & Yes                                       \\
+\textbf{GIS}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{HCW}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{HLN}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{ICW}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{IFS}         & Yes                                 & Yes                                 & -                                       & Yes                                      & Yes                                       & Yes                                       \\
+\textbf{IM}          & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{IS}          & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{InM}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{LAW}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{LEC}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{LM}          & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{LWZM}        & Yes                                 & Yes                                 & -                                       & Yes                                      & Yes                                       & Yes                                       \\
+\textbf{LZM}         & Yes                                 & Yes                                 & -                                       & Yes                                      & Yes                                       & Yes                                       \\
+\textbf{MD}          & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{MDU}         & Yes                                 & Yes                                 & -                                       & Yes                                      & Yes                                       & Yes                                       \\
+\textbf{MTTCRW}      & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{MW}          & Yes                                 & Yes                                 & Yes                                     & -                                        & -                                         & -                                         \\
+\textbf{OVW}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{PA}          & Yes                                 & Yes                                 & -                                       & Yes                                      & Yes                                       & Yes                                       \\
+\textbf{PCSW}        & Yes                                 & Yes                                 & Yes                                     & -                                        & -                                         & -                                         \\
+\textbf{PCW}         & Yes                                 & -                                   & -                                       & -                                        & -                                         & -                                         \\
+\textbf{PIN}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{RD}          & Yes                                 & Yes                                 & -                                       & Yes                                      & Yes                                       & Yes                                       \\
+\textbf{RW}          & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{SFONCW}      & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{SM}          & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{SOSS}        & Yes                                 & Yes                                 & -                                       & Yes                                      & Yes                                       & Yes                                       \\
+\textbf{SVA}         & Yes                                 & Yes                                 & -                                       & Yes                                      & Yes                                       & Yes                                       \\
+\textbf{SiVW}        & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{SlVW}        & Yes                                 & Yes                                 & Yes                                     & -                                        & -                                         & -                                         \\
+\textbf{StVW}        & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{TCW}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{TIRI}        & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{TLOSP}       & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{TOD}         & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{TVSP}        & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                         \\
+\textbf{VRSUDC}      & Yes                                 & Yes                                 & -                                       & Yes                                      & Yes                                       & Yes                                       \\
+\textbf{VRUW}        & Yes                                 & Yes                                 & Yes                                     & -                                        & -                                         & -                                         \\
+\textbf{VS}          & Yes                                 & Yes                                 & -                                       & Yes                                      & Yes                                       & Yes                                       \\
+\textbf{WWDW}        & Yes                                 & Yes                                 & -                                       & -                                        & -                                         & -                                        
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+\begin{table}[ht!]
+\centering
+\caption{Long Range and application (second part)}
+    \label{fig:techandapplong2}
+\begin{tabular}{lcccccc}
+\hline
+\textbf{Application} & \textbf{MBWA} & \textbf{MicroWave} & \textbf{NBIot} & \textbf{SigFox (Rural)} & \textbf{SigFox (Urban)} & \textbf{WiMax} \\
+\hline
+\textbf{AAC}         & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{ATTCRW}      & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{CACC}        & -             & -                  & Yes            & -                       & -                       & Yes            \\
+\textbf{CFCW}        & -             & -                  & Yes            & -                       & -                       & Yes            \\
+\textbf{CGR}         & -             & -                  & Yes            & -                       & -                       & Yes            \\
+\textbf{CLCA}        & -             & -                  & Yes            & -                       & -                       & Yes            \\
+\textbf{CLW}         & -             & -                  & Yes            & -                       & -                       & Yes            \\
+\textbf{CMA}         & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{CRWRSU}      & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{CSL}         & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{CTR}         & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{CVHAS}       & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{DS}          & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{EDCV}        & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{EEBL}        & -             & -                  & Yes            & -                       & -                       & Yes            \\
+\textbf{ERGN}        & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{ETC}         & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{EVSP}        & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{EVW}         & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{FADL}        & -             & -                  & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{FM}          & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{HCW}         & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{HLN}         & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{ICW}         & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{IFS}         & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{IM}          & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{InM}         & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{IS}          & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{LAW}         & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{LEC}         & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{LZM}         & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{MD}          & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{MDU}         & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{MTTCRW}      & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{MW}          & -             & -                  & Yes            & -                       & -                       & Yes            \\
+\textbf{OVW}         & -             & -                  & Yes            & -                       & -                       & Yes            \\
+\textbf{PA}          & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{PCSW}        & -             & -                  & -              & -                       & -                       & Yes            \\
+\textbf{PCW}         & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{PIN}         & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{RD}          & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{RW}          & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{SiVW}        & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{SlVW}        & -             & -                  & Yes            & -                       & -                       & Yes            \\
+\textbf{SM}          & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{SOSS}        & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{StVW}        & -             & -                  & Yes            & -                       & -                       & Yes            \\
+\textbf{SVA}         & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{TIRI}        & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{TLOSP}       & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{TOD}         & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{TVSP}        & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{VRSUDC}      & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{VRUW}        & Yes           & Yes                & Yes            & -                       & -                       & Yes            \\
+\textbf{VS}          & Yes           & Yes                & Yes            & Yes                     & Yes                     & Yes            \\
+\textbf{WWDW}        & Yes           & Yes                & Yes            & -                       & -                       & Yes           \\
+\hline
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+\begin{table}[ht!]
+\centering
+\caption{Medium Range and application }
+    \label{fig:techandappmedium}
+\begin{tabular}{lcc}
+\hline
+\textbf{Application} & \textbf{DSRC/Wave} & \textbf{WIFI} \\
+\hline
+\textbf{AAC}                  & Yes                & Yes           \\
+\textbf{ATTCRW}               & -                  & -             \\
+\textbf{CACC}                 & -                  & Yes           \\
+\textbf{CFCW}                 & -                  & Yes           \\
+\textbf{CGR}                  & -                  & Yes           \\
+\textbf{CLCA}                 & -                  & -             \\
+\textbf{CLW}                  & -                  & -             \\
+\textbf{CMA}                  & -                  & -             \\
+\textbf{CRWRSU}               & -                  & -             \\
+\textbf{CSL}                  & -                  & Yes           \\
+\textbf{CTR}                  & Yes                & Yes           \\
+\textbf{CVHAS}                & -                  & Yes           \\
+\textbf{DS}                   & Yes                & -             \\
+\textbf{EDCV}                 & Yes                & Yes           \\
+\textbf{EEBL}                 & -                  & -             \\
+\textbf{ERGN}                 & Yes                & Yes           \\
+\textbf{ETC}                  & Yes                & Yes           \\
+\textbf{EVSP}                 & Yes                & Yes           \\
+\textbf{EVW}                  & -                  & -             \\
+\textbf{FADL}                 & Yes                & Yes           \\
+\textbf{FM}                   & Yes                & Yes           \\
+\textbf{HCW}                  & -                  & -             \\
+\textbf{HLN}                  & -                  & -             \\
+\textbf{ICW}                  & -                  & -             \\
+\textbf{IFS}                  & Yes                & Yes           \\
+\textbf{IM}                   & Yes                & Yes           \\
+\textbf{InM}                  & Yes                & Yes           \\
+\textbf{IS}                   & Yes                & Yes           \\
+\textbf{LAW}                  & Yes                & Yes           \\
+\textbf{LEC}                  & Yes                & Yes           \\
+\textbf{LZM}                  & Yes                & Yes           \\
+\textbf{MD}                   & Yes                & Yes           \\
+\textbf{MDU}                  & Yes                & Yes           \\
+\textbf{MTTCRW}               & -                  & -             \\
+\textbf{MW}                   & -                  & Yes           \\
+\textbf{OVW}                  & -                  & -             \\
+\textbf{PA}                   & Yes                & Yes           \\
+\textbf{PCSW}                 & -                  & -             \\
+\textbf{PCW}                  & -                  & -             \\
+\textbf{PIN}                  & Yes                & Yes           \\
+\textbf{RD}                   & Yes                & Yes           \\
+\textbf{RW}                   & -                  & -             \\
+\textbf{SiVW}                 & -                  & -             \\
+\textbf{SlVW}                 & -                  & Yes           \\
+\textbf{SM}                   & Yes                & Yes           \\
+\textbf{SOSS}                 & Yes                & Yes           \\
+\textbf{StVW}                 & -                  & -             \\
+\textbf{SVA}                  & Yes                & Yes           \\
+\textbf{TIRI}                 & Yes                & Yes           \\
+\textbf{TLOSP}                & -                  & Yes           \\
+\textbf{TOD}                  & -                  & Yes           \\
+\textbf{TVSP}                 & Yes                & Yes           \\
+\textbf{VRSUDC}               & Yes                & Yes           \\
+\textbf{VRUW}                 & -                  & Yes           \\
+\textbf{VS}                   & Yes                & Yes           \\
+\textbf{WWDW}                 & -                  & -             \\
+\hline
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+\begin{table}[ht!]
+\centering
+\caption{Short Range and application }
+    \label{fig:techandappshort}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Applications}  & \textbf{Bluetooth} & \textbf{BLE} & \textbf{UWB} & \textbf{ZigBee} \\
+\hline
+\textbf{AAC}           & -                  & -            & -            & -               \\
+\textbf{ATTCRW}        & -                  & -            & -            & -               \\
+\textbf{CACC}          & -                  & -            & -            & -               \\
+\textbf{CFCW}          & -                  & -            & -            & -               \\
+\textbf{CGR}           & -                  & Yes          & Yes          & Yes             \\
+\textbf{CLCA}          & -                  & -            & -            & -               \\
+\textbf{CLW}           & -                  & -            & -            & -               \\
+\textbf{CMA}           & -                  & -            & -            & -               \\
+\textbf{CRWRSU}        & -                  & -            & -            & -               \\
+\textbf{CSL}           & -                  & -            & -            & -               \\
+\textbf{CTR}           & -                  & -            & -            & -               \\
+\textbf{CVHAS}         & -                  & -            & -            & -               \\
+\textbf{DS}            & -                  & -            & -            & -               \\
+\textbf{EDCV}          & -                  & -            & -            & -               \\
+\textbf{EEBL}          & -                  & -            & -            & -               \\
+\textbf{ERGN}          & -                  & -            & -            & -               \\
+\textbf{ETC}           & -                  & -            & -            & -               \\
+\textbf{EVSP}          & -                  & -            & -            & -               \\
+\textbf{EVW}           & -                  & -            & -            & -               \\
+\textbf{FADL}          & -                  & -            & -            & -               \\
+\textbf{FM}            & -                  & -            & -            & -               \\
+\textbf{HCW}           & -                  & -            & -            & -               \\
+\textbf{HLN}           & -                  & -            & -            & -               \\
+\textbf{ICW}           & -                  & -            & -            & -               \\
+\textbf{IFS}           & -                  & -            & -            & -               \\
+\textbf{IM}            & -                  & -            & -            & -               \\
+\textbf{InM}           & -                  & -            & -            & -               \\
+\textbf{IS}            & -                  & -            & -            & -               \\
+\textbf{LAW}           & -                  & -            & -            & -               \\
+\textbf{LEC}           & -                  & -            & -            & -               \\
+\textbf{LZM}           & -                  & -            & -            & -               \\
+\textbf{MD}            & -                  & -            & -            & -               \\
+\textbf{MDU}           & -                  & -            & -            & -               \\
+\textbf{MTTCRW}        & -                  & -            & -            & -               \\
+\textbf{MW}            & -                  & -            & Yes          & Yes             \\
+\textbf{OVW}           & -                  & -            & -            & -               \\
+\textbf{PA}            & -                  & -            & -            & -               \\
+\textbf{PCSW}          & -                  & -            & Yes          & Yes             \\
+\textbf{PCW}           & -                  & -            & -            & -               \\
+\textbf{PIN}           & -                  & -            & -            & -               \\
+\textbf{RD}            & -                  & -            & -            & -               \\
+\textbf{RW}            & -                  & -            & -            & -               \\
+\textbf{SiVW}          & -                  & -            & -            & -               \\
+\textbf{SlVW}          & -                  & -            & Yes          & Yes             \\
+\textbf{SM}            & -                  & -            & -            & -               \\
+\textbf{SOSS}          & -                  & -            & -            & -               \\
+\textbf{StVW}          & -                  & -            & -            & -               \\
+\textbf{SVA}           & -                  & -            & -            & -               \\
+\textbf{TIRI}          & -                  & -            & -            & -               \\
+\textbf{TLOSP}         & -                  & -            & -            & -               \\
+\textbf{TOD}           & -                  & -            & -            & -               \\
+\textbf{TVSP}          & -                  & -            & -            & -               \\
+\textbf{VRSUDC}        & -                  & -            & -            & -               \\
+\textbf{VRUW}          & -                  & -            & Yes          & Yes             \\
+\textbf{VS}            & -                  & -            & -            & -               \\
+\textbf{WWDW}          & -                  & -            & -            & -               \\
+\hline
+\end{tabular}
+\end{table}

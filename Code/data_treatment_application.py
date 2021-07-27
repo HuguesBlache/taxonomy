@@ -18,6 +18,24 @@ pd.options.mode.chained_assignment = None
 
 ###################################### FUNCTION #########################################################
 
+##############plot_category_kpi_2d##########          
+
+
+
+def plot_category_kpi_2d(x_axis,y_axis):
+    df=Category_KPI.iloc[:, np.r_[1:11]]
+    fig = px.scatter(df, x=df[x_axis],y=df[y_axis],color=df.index, log_x=True,log_y=True)
+    return fig.show()
+   
+   
+##############plot_technologies##########          
+
+
+def plot_technologies(x_axis,y_axis):
+    fig = px.scatter(technologies_data,text=technologies_data.index, x=x_axis,y=y_axis,color="Range Type", log_x=True,log_y=True)
+    return fig.show()
+####
+
 
 ##############Application_Categories_Sankey##########
 
@@ -740,17 +758,12 @@ def plot_category_kpi_2d(x_axis,y_axis):
 ##############plot_technologies##########          
 
 
-def plot_technologies(x_axis,y_axis):
-    fig = px.scatter(technologies_data,text=technologies_data.index, x=x_axis,y=y_axis,color="Range Type", log_x=True,log_y=True)
-    return fig.show()
 
 
 ##############plot_technologies##########          
 
 
 
-def plot_technologies(x_axis,y_axis):
-    fig = px.scatter(technologies_data,text=technologies_data.index, x=x_axis,y=y_axis,color="Range Type", log_x=True,log_y=True)
     return fig.show()
 
 ##############tableau_fusion##########          
@@ -873,9 +886,9 @@ application_categories=application_categories.set_index([ind])
 ## Creer une colomn couleur pour les Sankey... Pour l'instant que des valeurs aléatoires
 application_categories["Color"] = np.nan
 for i in application_categories['Category']:
-    r = lambda: random.randint(0,255)
-    b = lambda: random.randint(0,255)
-    g= lambda: random.randint(0,255)
+    r = lambda: random.randint(150,255)
+    b = lambda: random.randint(150,255)
+    g= lambda: random.randint(150,255)
     color='#%02X%02X%02X' % (r(),b(),g())
     for j in range(0,len(application_categories)):
         if application_categories['Category'][j]==i:
@@ -912,9 +925,9 @@ application_user=application_user.set_index([ind])
     ## Creer une colomn couleur pour les Sankey... Pour l'instant que des valeurs aléatoires
 application_user["Color"] = np.nan
 for i in application_user['User']:
-    r = lambda: random.randint(0,255)
-    b = lambda: random.randint(0,255)
-    g= lambda: random.randint(0,255)
+    r = lambda: random.randint(150,255)
+    b = lambda: random.randint(150,255)
+    g= lambda: random.randint(150,255)
     color='#%02X%02X%02X' % (r(),b(),g())
     for j in range(0,len(application_user)):
         if application_user['User'][j]==i:
@@ -934,9 +947,9 @@ application_communication_mode=application_communication_mode.set_index([ind])
     ## Creer une colomn couleur pour les Sankey... Pour l'instant que des valeurs aléatoires
 application_communication_mode["Color"] = np.nan
 for i in application_communication_mode['Comm']:
-    r = lambda: random.randint(0,255)
-    b = lambda: random.randint(0,255)
-    g= lambda: random.randint(0,255)
+    r = lambda: random.randint(150,255)
+    b = lambda: random.randint(150,255)
+    g= lambda: random.randint(150,255)
     color='#%02X%02X%02X' % (r(),b(),g())
     for j in range(0,len(application_communication_mode)):
         if application_communication_mode['Comm'][j]==i:
@@ -957,9 +970,9 @@ application_road=application_road.set_index([ind])
     ## Creer une colomn couleur pour les Sankey... Pour l'instant que des valeurs aléatoires
 application_road["Color"] = np.nan
 for i in application_road['Road']:
-    r = lambda: random.randint(0,255)
-    b = lambda: random.randint(0,255)
-    g= lambda: random.randint(0,255)
+    r = lambda: random.randint(150,255)
+    b = lambda: random.randint(150,255)
+    g= lambda: random.randint(150,255)
     color='#%02X%02X%02X' % (r(),b(),g())
     for j in range(0,len(application_road)):
         if application_road['Road'][j]==i:
@@ -991,9 +1004,9 @@ communication_mode_technologies=communication_mode_technologies.set_index([ind])
 ## Creer une colomn couleur pour les Sankey... Pour l'instant que des valeurs aléatoires
 communication_mode_technologies["Color"] = np.nan
 for i in communication_mode_technologies['Type']:
-    r = lambda: random.randint(0,255)
-    b = lambda: random.randint(0,255)
-    g= lambda: random.randint(0,255)
+    r = lambda: random.randint(150,255)
+    b = lambda: random.randint(150,255)
+    g= lambda: random.randint(150,255)
     color='#%02X%02X%02X' % (r(),b(),g())
     for j in range(0,len(communication_mode_technologies)):
         if communication_mode_technologies['Type'][j]==i:
