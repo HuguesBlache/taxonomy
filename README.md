@@ -50,7 +50,7 @@ Launch with Jupyter NoteBook on our <a href="https://jupyter-notebook-beginner-g
 
 <h3 align="center">Possibility</h3>
 
-The following figure represents the different possible paths for the figures 
+The following figure represents the different possible paths for the figures:
 <p align="center">
   <img src="https://github.com/HuguesBlache/taxonomy/blob/master/Image/interactive_cheminement/Diapositive1.PNG">
   <img src="https://github.com/HuguesBlache/taxonomy/blob/master/Image/interactive_cheminement/Diapositive2.PNG">
