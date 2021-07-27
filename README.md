@@ -33,7 +33,7 @@ Some data is not fully exploited because the Google sheet is just a collection o
 
 
 
-The entire repertoire of Binder can be found in this link [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/HEAD)
+The entire repertoire of Binder can be found in this link [![Binder](https:\\mybinder.org\badge_logo.svg)](https://mybinder.org/v2/gh/HuguesBlache/taxonomy/HEAD)
 
 
 The interactive parts can be found in the NoteBook <i>interactive_part.ipynb</i> .Launch the first cell and play with the different potibilities described below. 
