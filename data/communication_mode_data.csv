@@ -1,0 +1,5 @@
+,,Technology Used,,,,,,,,,,,,,,,,,,
+Type,Articles,Bluetooth,ZigBee,DSRC/Wave/ETSI-ITSG5,WIFI,LTE-4G,5G Low,5G Mid,5G mmWavve,NBIot,MBWA,WiMax,LoRa (Urban),LoRa (Rural),DASH7,BLE,Ingenu-RPMA,SigFox (Rural),SigFox (Urban),UWB
+V2V,"5,38,45, 47, 55,59,61, 66 , 68 , 69 , 71 , 88 , 96 , 100",Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,Yes,Yes,Yes,,Yes,Yes,Yes,Yes,Yes
+V2I,"38, 45 ,47,59,60,61, 66 , 67 , 68 , 69 , 71 , 88 , 96 , 100",,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,Yes,Yes,Yes,Yes
+V2P,"37, 63 , 64 , 71 , 88 , 102",Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,,,Yes,Yes,,Yes,,,,

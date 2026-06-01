@@ -23,9 +23,15 @@ Cite: <i> A Mapping of Connected Vehicles Applications Requirements on Telecommu
 
 <h2 align="center">Data</h2>
 
-The data was compiled on a <i> <a href="https://docs.google.com/spreadsheets/d/1OfUOVvTzfcZZhlYli21-WmcEfmikRiymsMdYXG2SAA4/edit?usp=sharing">Google sheet</a></i>. The data is synchronized directly with the Binder, that is to say that with each change, the figures change for each recompilation of the scripts. 
+The dataset is stored locally as CSV files in the <code>data/</code> folder. It was originally compiled in a spreadsheet during the research project and downloaded as a fixed snapshot in June 2026. The scripts read these files directly; no online connection is required.
 
-Some data is not fully exploited because the Google sheet is just a collection of data. Thus, it is possible that unclear data vis-à-vis the studies are not taken into account in the programs. 
+<ul>
+  <li><code>data/application_data.csv</code> — connected vehicle applications and requirements</li>
+  <li><code>data/communication_mode_data.csv</code> — communication modes (V2V, V2I, V2P, …)</li>
+  <li><code>data/technologies_data.csv</code> — telecommunication technologies and performance attributes</li>
+</ul>
+
+Some data is not fully exploited because the original collection contains more fields than the analysis scripts use. Unclear or incomplete entries may therefore be ignored by the programs.
 
 <h2 align="center">Interactive part</h2>
 

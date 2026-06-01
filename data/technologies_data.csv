@@ -1,0 +1,20 @@
+Technology,Article,Standard in North America,Data Rate (b/s),Max Range (m),Range Type,Delay (ms),Signal Interference,Transmission power for mobile,Suitability for mobility,Frequency Band(s) (GHz),Frequency Bandwidth(s) (MHz),Maintenance,Accesibility,Upfront Cost,Security,Dense Deployment
+WiMax,"45 , 98, 103",IEEE 802.16m,100000000,15000,Long,10,High,,,2.5,,Difficult,Schedule Based,High,High,No
+LTE-4G,"44, 68 , 95 , 98, 101",3GPP,1000000000,11000,Long,10,Low,,,2,,Difficult,Contention based,High,High,Yes
+5G Low,"5 ,18, 45, 73, 95 , 98",3GPP,250000000,15000,Long,30,Low,2000 mW (GSM),High,1,800,Difficult,Contention based,High,High,Yes
+NBIot,"5 ,18, 45, 73, 95 , 98",3GPP,200000,10000,Long,50,Low,,,2.4,200,,Contention based,,High,Yes
+MBWA,45.98,IEEE 802.20,44320000000,15000,Long,50,High,,,3.5,,Easy,Schedule Based,High,High,No
+LoRa (Rural),"95 , 96, 101 , 104",,5000000,15000,Long,400,,,,0.915,120,,Contention based,,,No
+LoRa (Urban),"95 , 96 , 101 , 104",,60000,5000,Long,400,,,,0.915,120,,Contention based,,,No
+SigFox (Rural),"95 , 101",,50000,50000,Long,400,,,,0.915,100,,Contention based,,,No
+SigFox (Urban),"95 , 101",,50000,10000,Long,400,,,,0.915,100,,Contention based,,,No
+DASH7,"95, 101",,167000,5000,Long,1000,,,,0.915,1.75,,Schedule Based,,,No
+Ingenu-RPMA,"95, 101",IEEE 802.15.4k,200000,30000,Long,400,,,,2.4,1,,Schedule Based,,,No
+WIFI,"18, 44, 45, 69 , 95 , 98 , 103",IEEE 802.11n,144000000,240,Medium,50,High,100 mv,Low,5.9,40,Easy,Contention based,Moderate-High,Low,No
+DSRC/Wave/ETSI-ITSG5," 5, 18, 45, 72 , 5 , 100",IEEE 802.11p,27000000,1000,Medium,100,Low,760 mW,High,5.9,10,Easy,Contention based,Moderate,High,No
+5G Mid,"5 ,18, 45, 73, 95 , 98",3GPP,900000000,1000,Medium,20,Low,,,60,100,,Contention based,,High,Yes
+UWB,"45, 68 , 100",IEEE 802.15.3,480000000,75,Short,0.1,Low,,,6.85,500,Easy,Contention based,Low,High,No
+Bluetooth," 45, 68 , 62, 95 , 97 , 100",IEEE 802.15.1,24000000,10,Short,100,High,100 mv,,2.4,1,Easy,Schedule Based,Low,Low,No
+BLE,100,IEEE 802.15.1,1000000,50,Short,6,High,100 mv,,2.4,2,Easy,Schedule Based,Low,Low,No
+ZigBee,"45, 95 , 98 , 99 , 100",IEEE 802.15.4,250000,100,Short,30,High,,,2.4,2,Easy,Schedule Based,Low,High,No
+5G mmWavve,"5 ,18, 45, 73, 95 , 98",3GPP,2000000000,100,Short,1,Low,,,24,400,,Contention based,,High,Yes

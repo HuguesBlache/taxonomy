@@ -1,7 +1,8 @@
+from pathlib import Path
+
 import plotly.graph_objects as go
 import pandas as pd
 import plotly.express as px
-import pandas as pd
 import ipywidgets as widgets
 from ipywidgets import interactive
 from IPython.display import display
@@ -852,19 +853,16 @@ def bar_technoly_app(test):
 
 
 
-##################################### DATA TRAITEMENT ###################################################
+##################################### DATA TREATMENT ####################################################
 
-sheet_application_data = "https://docs.google.com/spreadsheets/d/1OfUOVvTzfcZZhlYli21-WmcEfmikRiymsMdYXG2SAA4/edit#gid=386603968"
-application_data_url = sheet_application_data.replace('/edit#gid=', '/export?format=csv&gid=')
-application_data=pd.read_csv(application_data_url,header=1)
-sheet_communication_mode_data = "https://docs.google.com/spreadsheets/d/1OfUOVvTzfcZZhlYli21-WmcEfmikRiymsMdYXG2SAA4/edit#gid=1185192284"
-communication_mode_data_url = sheet_communication_mode_data.replace('/edit#gid=', '/export?format=csv&gid=')
-communication_mode_data=pd.read_csv(communication_mode_data_url,header=1)
-sheet_technologies_data = "https://docs.google.com/spreadsheets/d/1OfUOVvTzfcZZhlYli21-WmcEfmikRiymsMdYXG2SAA4/edit#gid=2129413061"
-technologies_data_url = sheet_technologies_data.replace('/edit#gid=', '/export?format=csv&gid=')
-technologies_data=pd.read_csv(technologies_data_url,index_col="Technology")
+# Local CSV data files (archived snapshot, no external data source).
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
-#### DATA TRAITEMENT AND MERGE
+application_data = pd.read_csv(DATA_DIR / "application_data.csv", header=1)
+communication_mode_data = pd.read_csv(DATA_DIR / "communication_mode_data.csv", header=1)
+technologies_data = pd.read_csv(DATA_DIR / "technologies_data.csv", index_col="Technology")
+
+#### DATA TREATMENT AND MERGE
 
 ### data_treatment_application
 for j in application_data.columns:
@@ -878,12 +876,12 @@ for i in application_data.columns[4:20]:
     for j in range(0,len(application_data[i])):
         if application_data[i][j] is i :
             application_categories=application_categories.append(pd.DataFrame({'Acronym': [application_data['Acronym'][j]],'Category':[application_data[i][j]]}))
-## Redefinition des indices
+# Reset index
             ind=[i for i in range(len(application_categories))]
 application_categories=application_categories.set_index([ind])
 
 
-## Creer une colomn couleur pour les Sankey... Pour l'instant que des valeurs aléatoires
+# Add a color column for Sankey diagrams (random values for now)
 application_categories["Color"] = np.nan
 for i in application_categories['Category']:
     r = lambda: random.randint(150,255)
@@ -922,7 +920,7 @@ for i in application_data.columns[23:31]:
 ind=[i for i in range(len(application_user))]
 application_user=application_user.set_index([ind])   
 
-    ## Creer une colomn couleur pour les Sankey... Pour l'instant que des valeurs aléatoires
+# Add a color column for Sankey diagrams (random values for now)
 application_user["Color"] = np.nan
 for i in application_user['User']:
     r = lambda: random.randint(150,255)
@@ -940,11 +938,11 @@ for i in application_data.columns[50:53]:
     for j in range(0,len(application_data[i])):
         if application_data[i][j] is i :
             application_communication_mode=application_communication_mode.append(pd.DataFrame({'Name': [application_data['Acronym'][j]],'Comm':[application_data[i][j]]}))
-## Redefinition des indices
+# Reset index
 ind=[i for i in range(len(application_communication_mode))]
 application_communication_mode=application_communication_mode.set_index([ind])   
 
-    ## Creer une colomn couleur pour les Sankey... Pour l'instant que des valeurs aléatoires
+# Add a color column for Sankey diagrams (random values for now)
 application_communication_mode["Color"] = np.nan
 for i in application_communication_mode['Comm']:
     r = lambda: random.randint(150,255)
@@ -963,11 +961,11 @@ for i in application_data.columns[31:34]:
     for j in range(0,len(application_data[i])):
         if application_data[i][j] is i :
             application_road=application_road.append(pd.DataFrame({'Name': [application_data['Acronym'][j]],'Road':[application_data[i][j]]}))
-## Redefinition des indices
+# Reset index
 ind=[i for i in range(len(application_road))]
 application_road=application_road.set_index([ind])   
 
-    ## Creer une colomn couleur pour les Sankey... Pour l'instant que des valeurs aléatoires
+# Add a color column for Sankey diagrams (random values for now)
 application_road["Color"] = np.nan
 for i in application_road['Road']:
     r = lambda: random.randint(150,255)
@@ -996,12 +994,12 @@ for i in communication_mode_data.columns[2:25]:
     for j in range(0,len(communication_mode_data[i])):
         if communication_mode_data[i][j] is i :
             communication_mode_technologies=communication_mode_technologies.append(pd.DataFrame({'Type': [communication_mode_data['Type'][j]],'Technologies':[communication_mode_data[i][j]]}))
-## Redefinition des indices
+# Reset index
             ind=[i for i in range(len(communication_mode_technologies))]
 communication_mode_technologies=communication_mode_technologies.set_index([ind])
 
 
-## Creer une colomn couleur pour les Sankey... Pour l'instant que des valeurs aléatoires
+# Add a color column for Sankey diagrams (random values for now)
 communication_mode_technologies["Color"] = np.nan
 for i in communication_mode_technologies['Type']:
     r = lambda: random.randint(150,255)
@@ -1053,7 +1051,7 @@ for i in range(0,len(merge_com_app_tech)):
     
 test=test.drop_duplicates()
 
-## Treatement Techologie
+# Technology data treatment
 
 technologies_data_modif=technologies_data
 technologies_data_modif["Value"]  = np.nan
@@ -1063,7 +1061,7 @@ for i in technologies_data_modif.index:
         if technologies_data_modif.index[j]==i:
             technologies_data_modif['Value'][j]=j+1
             
-### Matrice PIVOT
+# Pivot matrix
 
 percentage_category_tech=application_categories.merge(test.rename(columns={'Application':'Acronym'}),on="Acronym").groupby(['Category','Technology']).size().reset_index()
 percentage_category_tech['Percentage']=np.nan
