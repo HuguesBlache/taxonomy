@@ -298,7 +298,7 @@ def boxplot_category(test,application_categories):
     boxtest=new_test.drop_duplicates()
     boxplot_fusion=boxtest.groupby(['Acronym']).count()
     plot_box=application_categories_new.merge(boxplot_fusion,on="Acronym")
-    Catagory_sort=plot_box.groupby('Category').median().reset_index().sort_values(['Technology'])
+    Catagory_sort=plot_box.groupby('Category').median(numeric_only=True).reset_index().sort_values(['Technology'])
     size_categrory_merge=plot_box.groupby('Category').count().reset_index().merge(Catagory_sort,on="Category")
     array_name=size_categrory_merge.sort_values(['Technology_y','Technology_x'], ascending=[True, False])
     #plot_box=plot_box.sort_values(['Technology'])
@@ -778,7 +778,7 @@ def tableau_fusion(df):
 
 
 def Technologies_Parallel_Cordianate(Range):     
-    df=technologies_data[technologies_data["Range Type"]==Range]
+    df=technologies_data_modif[technologies_data_modif["Range Type"]==Range]
     b=df["Range Type"]  
     new_list1 = [] 
     for i in b : 
@@ -804,8 +804,8 @@ def Technologies_Parallel_Cordianate(Range):
         
               dict(range = [min(df['Max Range (m)']),max(df['Max Range (m)'])],
                  label = 'Max Range (m)', values = df['Max Range (m)']),
-             dict(range = [min(df['Data Rate (Mb/s)']),max(df['Data Rate (Mb/s)'])],
-                 label = 'Data Rate (Mb/s)', values = df['Data Rate (Mb/s)']),
+             dict(range = [min(df['Data Rate (b/s)']),max(df['Data Rate (b/s)'])],
+                 label = 'Data Rate (b/s)', values = df['Data Rate (b/s)']),
             dict(range = [min(df['Frequency Band(s) (GHz)']),max(df['Frequency Band(s) (GHz)'])],
                  label = 'Frequency Band(s) (GHz)', values = df['Frequency Band(s) (GHz)']),
              dict(range = [min(df['Frequency Band(s) (GHz)']),max(df['Frequency Band(s) (GHz)'])],
@@ -864,213 +864,182 @@ technologies_data = pd.read_csv(DATA_DIR / "technologies_data.csv", index_col="T
 
 #### DATA TREATMENT AND MERGE
 
+def _replace_yes_with_column_name(df):
+    df = df.copy()
+    for col in df.columns:
+        yes_mask = df[col] == "Yes"
+        if yes_mask.any():
+            df[col] = df[col].astype(object)
+            df.loc[yes_mask, col] = col
+    return df
+
+
+def _extract_labeled_rows(df, value_columns, id_col, id_out, value_out):
+    rows = []
+    for col in value_columns:
+        mask = df[col] == col
+        for acronym in df.loc[mask, id_col]:
+            rows.append({id_out: acronym, value_out: col})
+    if not rows:
+        return pd.DataFrame(columns=[id_out, value_out])
+    return pd.DataFrame(rows).reset_index(drop=True)
+
+
+def _assign_group_colors(df, group_col, color_col="Color"):
+    color_map = {}
+    colors = []
+    for val in df[group_col]:
+        if val not in color_map:
+            r = random.randint(150, 255)
+            b = random.randint(150, 255)
+            g = random.randint(150, 255)
+            color_map[val] = f"#{r:02X}{b:02X}{g:02X}"
+        colors.append(color_map[val])
+    df = df.copy()
+    df[color_col] = colors
+    return df
+
+
 ### data_treatment_application
-for j in application_data.columns:
-    for i in range(0,len(application_data[j])):
-        if application_data[j][i]=="Yes":
-    
-            application_data.__getitem__(j).__setitem__(i, j)
-colnames = ['Acronym','Category']
-application_categories = pd.DataFrame(columns = colnames)
-for i in application_data.columns[4:20]:
-    for j in range(0,len(application_data[i])):
-        if application_data[i][j] is i :
-            application_categories=application_categories.append(pd.DataFrame({'Acronym': [application_data['Acronym'][j]],'Category':[application_data[i][j]]}))
-# Reset index
-            ind=[i for i in range(len(application_categories))]
-application_categories=application_categories.set_index([ind])
+application_data = _replace_yes_with_column_name(application_data)
 
+application_categories = _extract_labeled_rows(
+    application_data,
+    application_data.columns[4:20],
+    "Acronym",
+    "Acronym",
+    "Category",
+)
+application_categories = _assign_group_colors(application_categories, "Category")
 
-# Add a color column for Sankey diagrams (random values for now)
-application_categories["Color"] = np.nan
-for i in application_categories['Category']:
-    r = lambda: random.randint(150,255)
-    b = lambda: random.randint(150,255)
-    g= lambda: random.randint(150,255)
-    color='#%02X%02X%02X' % (r(),b(),g())
-    for j in range(0,len(application_categories)):
-        if application_categories['Category'][j]==i:
-            application_categories.__getitem__('Color').__setitem__(j, color)
+Category_KPI = pd.merge(
+    application_categories,
+    application_data.iloc[:, np.r_[1, 39:49]],
+    on="Acronym",
+)
+del Category_KPI["Acronym"]
+Category_KPI.set_index(Category_KPI["Category"], inplace=True)
+Category_KPI["Count"] = np.arange(1, len(Category_KPI) + 1)
+Category_KPI["MeCount"] = np.arange(1, len(Category_KPI) + 1)
 
-    #### Category_KPI 
+application_user = _extract_labeled_rows(
+    application_data,
+    application_data.columns[23:31],
+    "Acronym",
+    "Name",
+    "User",
+)
+application_user = _assign_group_colors(application_user, "User")
 
-    
-Category_KPI=pd.merge(application_categories,application_data.iloc[:, np.r_[1,39:49]],on='Acronym')
-del(Category_KPI['Acronym'])
-Category_KPI.set_index(Category_KPI['Category'],inplace = True)
-Category_KPI["Count"]  = np.nan
-Category_KPI["MeCount"]  = np.nan
-for i in Category_KPI.index:
-    for j in range(0,len(Category_KPI)):
-        if Category_KPI.index[j]==i:
-            Category_KPI.loc.__setitem__((slice(None), ('Count', j)), j+1)
+application_communication_mode = _extract_labeled_rows(
+    application_data,
+    application_data.columns[50:53],
+    "Acronym",
+    "Name",
+    "Comm",
+)
+application_communication_mode = _assign_group_colors(application_communication_mode, "Comm")
 
-for i in Category_KPI['Priority']:
-    for j in range(0,len(Category_KPI)):
-        if Category_KPI['Priority'][j]==i:
-           Category_KPI.loc.__setitem__((slice(None), ('MeCount', j)), j+1)
-			
-colnames = ['Name','User']
-application_user = pd.DataFrame(columns = colnames)
-for i in application_data.columns[23:31]:
-    for j in range(0,len(application_data[i])):
-        if application_data[i][j] is i :
-            application_user=application_user.append(pd.DataFrame({'Name': [application_data['Acronym'][j]],'User':[application_data[i][j]]}))
-            
-ind=[i for i in range(len(application_user))]
-application_user=application_user.set_index([ind])   
+Application_KPI = application_data.iloc[:, np.r_[0, 39:49]]
 
-# Add a color column for Sankey diagrams (random values for now)
-application_user["Color"] = np.nan
-for i in application_user['User']:
-    r = lambda: random.randint(150,255)
-    b = lambda: random.randint(150,255)
-    g= lambda: random.randint(150,255)
-    color='#%02X%02X%02X' % (r(),b(),g())
-    for j in range(0,len(application_user)):
-        if application_user['User'][j]==i:
-            application_user['Color'][j]=color  
-			
-			
-colnames = ['Name','Comm']
-application_communication_mode = pd.DataFrame(columns = colnames)
-for i in application_data.columns[50:53]:
-    for j in range(0,len(application_data[i])):
-        if application_data[i][j] is i :
-            application_communication_mode=application_communication_mode.append(pd.DataFrame({'Name': [application_data['Acronym'][j]],'Comm':[application_data[i][j]]}))
-# Reset index
-ind=[i for i in range(len(application_communication_mode))]
-application_communication_mode=application_communication_mode.set_index([ind])   
+application_road = _extract_labeled_rows(
+    application_data,
+    application_data.columns[31:34],
+    "Acronym",
+    "Name",
+    "Road",
+)
+application_road = _assign_group_colors(application_road, "Road")
 
-# Add a color column for Sankey diagrams (random values for now)
-application_communication_mode["Color"] = np.nan
-for i in application_communication_mode['Comm']:
-    r = lambda: random.randint(150,255)
-    b = lambda: random.randint(150,255)
-    g= lambda: random.randint(150,255)
-    color='#%02X%02X%02X' % (r(),b(),g())
-    for j in range(0,len(application_communication_mode)):
-        if application_communication_mode['Comm'][j]==i:
-            application_communication_mode['Color'][j]=color
-			
-Application_KPI=application_data.iloc[:, np.r_[0,39:49]]
-
-colnames = ['Name','Road']
-application_road = pd.DataFrame(columns = colnames)
-for i in application_data.columns[31:34]:
-    for j in range(0,len(application_data[i])):
-        if application_data[i][j] is i :
-            application_road=application_road.append(pd.DataFrame({'Name': [application_data['Acronym'][j]],'Road':[application_data[i][j]]}))
-# Reset index
-ind=[i for i in range(len(application_road))]
-application_road=application_road.set_index([ind])   
-
-# Add a color column for Sankey diagrams (random values for now)
-application_road["Color"] = np.nan
-for i in application_road['Road']:
-    r = lambda: random.randint(150,255)
-    b = lambda: random.randint(150,255)
-    g= lambda: random.randint(150,255)
-    color='#%02X%02X%02X' % (r(),b(),g())
-    for j in range(0,len(application_road)):
-        if application_road['Road'][j]==i:
-            application_road['Color'][j]=color 
-            
-            
-            
 #### data_treatment_communication
+communication_mode_data = _replace_yes_with_column_name(communication_mode_data)
 
+communication_mode_technologies = _extract_labeled_rows(
+    communication_mode_data,
+    communication_mode_data.columns[2:25],
+    "Type",
+    "Type",
+    "Technologies",
+)
+communication_mode_technologies = _assign_group_colors(communication_mode_technologies, "Type")
 
-
-for j in communication_mode_data.columns:
-    for i in range(0,len(communication_mode_data[j])):
-        if communication_mode_data[j][i]=="Yes":
-            ##communication_mode_data.loc.__setitem__((slice(None), (j, i)), i)  
-            communication_mode_data[j][i]=j
-            
-colnames = ['Type','Technologies']
-communication_mode_technologies = pd.DataFrame(columns = colnames)
-for i in communication_mode_data.columns[2:25]:
-    for j in range(0,len(communication_mode_data[i])):
-        if communication_mode_data[i][j] is i :
-            communication_mode_technologies=communication_mode_technologies.append(pd.DataFrame({'Type': [communication_mode_data['Type'][j]],'Technologies':[communication_mode_data[i][j]]}))
-# Reset index
-            ind=[i for i in range(len(communication_mode_technologies))]
-communication_mode_technologies=communication_mode_technologies.set_index([ind])
-
-
-# Add a color column for Sankey diagrams (random values for now)
-communication_mode_technologies["Color"] = np.nan
-for i in communication_mode_technologies['Type']:
-    r = lambda: random.randint(150,255)
-    b = lambda: random.randint(150,255)
-    g= lambda: random.randint(150,255)
-    color='#%02X%02X%02X' % (r(),b(),g())
-    for j in range(0,len(communication_mode_technologies)):
-        if communication_mode_technologies['Type'][j]==i:
-            communication_mode_technologies['Color'][j]=color 
-            
-            
 ### data_treatment_mapping
+application_communication_mode_columns = application_communication_mode.rename(columns={"Comm": "Type"})
+merge_com_app_tech = pd.merge(communication_mode_technologies, application_communication_mode_columns, on="Type")
 
-application_communication_mode_columns = application_communication_mode.rename(columns={'Comm': 'Type'})
-merge_com_app_tech=pd.merge(communication_mode_technologies, application_communication_mode_columns, on="Type")
+application_requirement = application_data.iloc[:, np.r_[1, 38:48, 50:53]]
+application_requirement.set_index("Acronym", inplace=True)
+technologies_performances = technologies_data.iloc[:, np.r_[2:16]]
 
+test_rows = []
+for i in range(len(merge_com_app_tech)):
+    Name_app = merge_com_app_tech["Name"].iloc[i]
+    Name_tech = merge_com_app_tech["Technologies"].iloc[i]
+    app_types = merge_com_app_tech.loc[merge_com_app_tech["Name"] == Name_app, "Type"].tolist()
+    comm_type = merge_com_app_tech["Type"].iloc[i]
 
-application_requirement=application_data.iloc[:, np.r_[1,38:48,50:53]]
-application_requirement.set_index("Acronym", inplace = True)
-technologies_performances=technologies_data.iloc[:, np.r_[2:16]]
-#technologies_performances=technologies_performances.merge(communication_mode_technologies.rename(columns={'Technologies':'Technology'}),on="Technology")
-colnames = ['Application','Technology']
-test = pd.DataFrame(columns = colnames)
-for i in range(0,len(merge_com_app_tech)):
-    Name_app=merge_com_app_tech['Name'][i]
-    Name_tech=merge_com_app_tech['Technologies'][i]
-    if merge_com_app_tech[merge_com_app_tech.Name==Name_app]['Type'][i]=='V2P' and \
-    'V2I' not in merge_com_app_tech[merge_com_app_tech.Name==Name_app]['Type'].tolist() and \
-    int(application_requirement["Max latency (ms)"][merge_com_app_tech['Name'][i]])>int(technologies_performances["Delay (ms)"][merge_com_app_tech['Technologies'][i]]) and\
-    int(application_requirement["Range"][Name_app])<int(technologies_performances["Max Range (m)"][Name_tech])and\
-    int(application_requirement["Data Rate"][Name_app])<int(technologies_performances['Data Rate (Mb/s)'][Name_tech]*10**6):
-        test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]}))
-        
-        
-    elif merge_com_app_tech[merge_com_app_tech.Name==Name_app]['Type'][i]=='V2V' and \
-    'V2I' not in merge_com_app_tech[merge_com_app_tech.Name==Name_app]['Type'].tolist() and \
-    int(application_requirement["Max latency (ms)"][merge_com_app_tech['Name'][i]])>int(technologies_performances["Delay (ms)"][merge_com_app_tech['Technologies'][i]]) and\
-    int(application_requirement["Range"][Name_app])<int(technologies_performances["Max Range (m)"][Name_tech])and\
-    int(application_requirement["Data Rate"][Name_app])<int(technologies_performances['Data Rate (Mb/s)'][Name_tech]*10**6):
-        test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]}))
-    
-    elif 'V2I' in merge_com_app_tech[merge_com_app_tech.Name==Name_app]['Type'].tolist() and int(application_requirement["Max latency (ms)"][merge_com_app_tech['Name'][i]])>int(technologies_performances["Delay (ms)"][merge_com_app_tech['Technologies'][i]]) and\
-    int(application_requirement["Data Rate"][Name_app])<int(technologies_performances['Data Rate (Mb/s)'][Name_tech]*10**6):
-         if int(application_requirement["Range"][merge_com_app_tech['Name'][i]])<int(technologies_performances["Max Range (m)"][merge_com_app_tech['Technologies'][i]]) and\
-         technologies_performances["Dense Deployment"][Name_tech]=='No':
-            test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]}))
-         elif technologies_performances["Dense Deployment"][Name_tech]=='Yes':
-            test=test.append(pd.DataFrame({'Application':[merge_com_app_tech['Name'][i]],"Technology":[merge_com_app_tech['Technologies'][i]]})) 
-    
-test=test.drop_duplicates()
+    if (
+        comm_type == "V2P"
+        and "V2I" not in app_types
+        and int(application_requirement["Max latency (ms)"][Name_app])
+        > int(technologies_performances["Delay (ms)"][Name_tech])
+        and int(application_requirement["Range"][Name_app])
+        < int(technologies_performances["Max Range (m)"][Name_tech])
+        and int(application_requirement["Data Rate"][Name_app])
+        < int(technologies_performances["Data Rate (b/s)"][Name_tech])
+    ):
+        test_rows.append({"Application": Name_app, "Technology": Name_tech})
+
+    elif (
+        comm_type == "V2V"
+        and "V2I" not in app_types
+        and int(application_requirement["Max latency (ms)"][Name_app])
+        > int(technologies_performances["Delay (ms)"][Name_tech])
+        and int(application_requirement["Range"][Name_app])
+        < int(technologies_performances["Max Range (m)"][Name_tech])
+        and int(application_requirement["Data Rate"][Name_app])
+        < int(technologies_performances["Data Rate (b/s)"][Name_tech])
+    ):
+        test_rows.append({"Application": Name_app, "Technology": Name_tech})
+
+    elif (
+        "V2I" in app_types
+        and int(application_requirement["Max latency (ms)"][Name_app])
+        > int(technologies_performances["Delay (ms)"][Name_tech])
+        and int(application_requirement["Data Rate"][Name_app])
+        < int(technologies_performances["Data Rate (b/s)"][Name_tech])
+    ):
+        if (
+            int(application_requirement["Range"][Name_app])
+            < int(technologies_performances["Max Range (m)"][Name_tech])
+            and technologies_performances["Dense Deployment"][Name_tech] == "No"
+        ) or technologies_performances["Dense Deployment"][Name_tech] == "Yes":
+            test_rows.append({"Application": Name_app, "Technology": Name_tech})
+
+test = pd.DataFrame(test_rows, columns=["Application", "Technology"]).drop_duplicates()
 
 # Technology data treatment
+technologies_data_modif = technologies_data.copy()
+technologies_data_modif["Value"] = np.arange(1, len(technologies_data_modif) + 1)
 
-technologies_data_modif=technologies_data
-technologies_data_modif["Value"]  = np.nan
-
-for i in technologies_data_modif.index:
-    for j in range(0,len(technologies_data_modif)):
-        if technologies_data_modif.index[j]==i:
-            technologies_data_modif['Value'][j]=j+1
-            
 # Pivot matrix
+percentage_category_tech = (
+    application_categories.merge(test.rename(columns={"Application": "Acronym"}), on="Acronym")
+    .groupby(["Category", "Technology"])
+    .size()
+    .reset_index(name="count")
+)
+percentage_category_tech["Percentage"] = percentage_category_tech.apply(
+    lambda row: 100
+    * row["count"]
+    / percentage_category_tech.loc[
+        percentage_category_tech["Category"] == row["Category"], "count"
+    ].max(),
+    axis=1,
+)
+pivot_percentage = percentage_category_tech.pivot(
+    index="Technology", columns="Category", values="Percentage"
+).round(1)
+pivot_percentage = pivot_percentage.fillna(0)
 
-percentage_category_tech=application_categories.merge(test.rename(columns={'Application':'Acronym'}),on="Acronym").groupby(['Category','Technology']).size().reset_index()
-percentage_category_tech['Percentage']=np.nan
-for i in range(0,len(percentage_category_tech['Category'])):
-    percentage_category_tech['Percentage'][i]=100*percentage_category_tech[0][i]/max(percentage_category_tech[percentage_category_tech['Category']==percentage_category_tech['Category'][i]][0])
-pivot_percentage=percentage_category_tech.pivot(index='Technology', columns='Category', values='Percentage').round(1)
-for i in pivot_percentage.columns:
-    for j in pivot_percentage.index:
-        if np.isnan(pivot_percentage[i][j]):
-            pivot_percentage[i][j]=0
-
-pivot_table=pivot_percentage.style.format('{0}%').background_gradient(cmap='RdYlGn',axis=None)
+pivot_table = pivot_percentage.style.format("{0}%").background_gradient(cmap="RdYlGn", axis=None)
